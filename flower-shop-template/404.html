@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Page Not Found | Bloomora</title>
+  <meta name="description" content="The page you're looking for seems to have wilted. Let's get you back to the blooms.">
+  <meta name="robots" content="noindex">
+  <meta name="author" content="Bloomora">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100 min-h-screen">
+  <main class="relative overflow-hidden min-h-screen flex items-center justify-center">
+    <div class="blob w-[24rem] h-[24rem] bg-[#C06389]/25 top-[-6rem] end-[-6rem]"></div>
+    <div class="blob w-[20rem] h-[20rem] bg-[#fbbf24]/20 bottom-[-5rem] start-[-5rem]"></div>
+
+    <div class="container-x relative py-16 text-center">
+      <p class="font-display text-[7rem] sm:text-[11rem] leading-none font-semibold text-gradient">404</p>
+      <h1 class="section-title text-3xl sm:text-4xl mt-4">Oops! That page has wilted</h1>
+      <p class="mt-4 text-[color:var(--ink-soft)] max-w-lg mx-auto">The page you're looking for was either moved, renamed, or never bloomed. Let's get you back to the flowers.</p>
+
+      <form class="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="return false;">
+        <label class="sr-only" for="e404-search">Search Bloomora</label>
+        <input id="e404-search" class="form-input !rounded-full flex-1" type="search" placeholder="Search bouquets, services, guides...">
+        <button class="btn btn-primary shrink-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+      </form>
+
+      <div class="flex flex-wrap justify-center gap-3 mt-10">
+        <a href="index.html" class="btn btn-primary btn-lg">Back to home <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="index-floral.html" class="btn btn-outline btn-lg">Shop bouquets</a>
+        <a href="contact.html" class="btn btn-outline btn-lg">Contact us</a>
+      </div>
+
+      <p class="mt-10 text-sm text-[color:var(--ink-soft)]">Looking for something? Try the <a href="blog.html" class="font-bold text-[color:var(--primary)] hover:underline">blog</a>, <a href="services.html" class="font-bold text-[color:var(--primary)] hover:underline">services</a> or <a href="pricing.html" class="font-bold text-[color:var(--primary)] hover:underline">pricing</a> pages.</p>
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

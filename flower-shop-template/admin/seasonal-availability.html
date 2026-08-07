@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seasonal Availability | Bloomora Admin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <div class="admin-body" id="admin-body">
+
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="px-5 py-5 flex items-center gap-2.5 border-b border-white/10">
+        <img src="../assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <div>
+          <p class="font-display font-semibold text-2xl tracking-tight">Bloomora</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mt-1">Admin Panel</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-3 py-4" aria-label="Admin navigation">
+        <p class="side-section-label">Main</p>
+        <a href="index.html" class="side-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="bouquet-categories.html" class="side-link"><i class="fa-solid fa-shapes"></i> Bouquet Categories</a>
+        <a href="seasonal-availability.html" class="side-link active" aria-current="page"><i class="fa-solid fa-calendar-days"></i> Seasonal Availability</a>
+        <a href="same-day-delivery.html" class="side-link"><i class="fa-solid fa-truck-fast"></i> Same-Day Delivery</a>
+        <a href="custom-order.html" class="side-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Orders <span class="side-badge">5</span></a>
+        <p class="side-section-label">Manage</p>
+        <a href="orders.html" class="side-link"><i class="fa-solid fa-basket-shopping"></i> Orders <span class="side-badge">12</span></a>
+        <a href="users.html" class="side-link"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="messages.html" class="side-link"><i class="fa-solid fa-envelope"></i> Messages <span class="side-badge">8</span></a>
+        <p class="side-section-label">Other</p>
+        <a href="settings.html" class="side-link"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../index.html" class="side-link"><i class="fa-solid fa-globe"></i> View Website</a>
+        <a href="../login.html" class="side-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <div class="rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-bold">Studio at a glance</p>
+          <p class="text-[0.7rem] text-white/70 mt-1">Order cutoff today: 2:00 PM</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/15 overflow-hidden"><span class="block h-full w-[62%] rounded-full bg-[#fbbf24]"></span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="admin-sidebar-backdrop"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar px-4 sm:px-6 py-3 flex items-center gap-3">
+        <button type="button" class="icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden sm:block">
+          <p class="font-display text-lg font-semibold leading-tight">Seasonal Availability</p>
+          <p class="text-xs text-[color:var(--ink-soft)]">Spring · Summer · Autumn · Winter</p>
+        </div>
+        <div class="flex-1"></div>
+        <button type="button" class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <div class="relative" data-dropdown>
+          <button type="button" class="icon-btn relative" data-dropdown-btn aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="absolute -top-0.5 -end-0.5 w-2.5 h-2.5 rounded-full bg-[#C06389] ring-2 ring-[color:var(--surface)]"></span></button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-80" data-dropdown-menu style="inset-inline-end:0">
+            <p class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Notifications</p>
+            <a href="seasonal-availability.html" class="!normal-case !font-semibold"><i class="fa-solid fa-triangle-exclamation text-[color:var(--honey)]"></i> Sunflowers stock running low</a>
+            <a href="orders.html" class="!normal-case !font-semibold"><i class="fa-solid fa-basket-shopping text-[color:var(--primary)]"></i> New order #4821 — Spring Meadow</a>
+          </div>
+        </div>
+        <div class="relative" data-dropdown>
+          <button type="button" class="flex items-center gap-2 pe-1" data-dropdown-btn aria-label="Account menu">
+            <span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+            <span class="hidden lg:block text-start leading-tight"><span class="block text-sm font-bold">Iris Bennett</span><span class="block text-[0.7rem] text-[color:var(--ink-soft)]">Super Admin</span></span>
+            <i class="fa-solid fa-chevron-down text-xs text-[color:var(--ink-soft)]"></i>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-56" data-dropdown-menu style="inset-inline-end:0">
+            <a href="settings.html"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+            <a href="../login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-semibold">Seasonal flower availability</h1>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-1">Track which stems are in peak season, limited or out of stock.</p>
+          </div>
+          <div class="flex gap-2">
+            <button type="button" class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Export</button>
+            <button type="button" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add Flower</button>
+          </div>
+        </div>
+
+        <!-- Season tabs -->
+        <div class="flex flex-wrap gap-2 mb-5" data-tabs>
+          <button type="button" class="tab-btn active" data-tab="spring"><i class="fa-solid fa-seedling"></i> Spring</button>
+          <button type="button" class="tab-btn" data-tab="summer"><i class="fa-solid fa-sun"></i> Summer</button>
+          <button type="button" class="tab-btn" data-tab="autumn"><i class="fa-solid fa-tree"></i> Autumn</button>
+          <button type="button" class="tab-btn" data-tab="winter"><i class="fa-solid fa-snowflake"></i> Winter</button>
+        </div>
+
+        <!-- Spring -->
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-panel="spring">
+          <div class="season-cell flex items-center justify-between gap-3 reveal">
+            <div class="flex items-center gap-3">
+              <span class="season-dot bg-[#C06389]"></span>
+              <div><p class="font-bold text-sm">Peony</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 92%</p></div>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <span class="pill pill-inseason">Peak</span>
+              <div class="progress w-20"><span style="width:92%" class="bg-[#469a62]"></span></div>
+            </div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3 reveal">
+            <div class="flex items-center gap-3">
+              <span class="season-dot bg-[#C06389]"></span>
+              <div><p class="font-bold text-sm">Tulip</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 84%</p></div>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <span class="pill pill-inseason">Peak</span>
+              <div class="progress w-20"><span style="width:84%" class="bg-[#469a62]"></span></div>
+            </div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3 reveal">
+            <div class="flex items-center gap-3">
+              <span class="season-dot bg-[#f59e0b]"></span>
+              <div><p class="font-bold text-sm">Daffodil</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 61%</p></div>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <span class="pill pill-limited">Limited</span>
+              <div class="progress w-20"><span style="width:61%" class="bg-[#f59e0b]"></span></div>
+            </div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3 reveal">
+            <div class="flex items-center gap-3">
+              <span class="season-dot bg-[#38bdf8]"></span>
+              <div><p class="font-bold text-sm">Hyacinth</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 74%</p></div>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <span class="pill pill-inseason">In season</span>
+              <div class="progress w-20"><span style="width:74%" class="bg-[#469a62]"></span></div>
+            </div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3 reveal">
+            <div class="flex items-center gap-3">
+              <span class="season-dot bg-[#34d399]"></span>
+              <div><p class="font-bold text-sm">Anemone</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 38%</p></div>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <span class="pill pill-limited">Limited</span>
+              <div class="progress w-20"><span style="width:38%" class="bg-[#f59e0b]"></span></div>
+            </div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3 reveal">
+            <div class="flex items-center gap-3">
+              <span class="season-dot bg-[#6ab681]"></span>
+              <div><p class="font-bold text-sm">Eucalyptus</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 100%</p></div>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <span class="pill pill-inseason">All year</span>
+              <div class="progress w-20"><span style="width:100%" class="bg-[#469a62]"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summer -->
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-panel="summer" hidden>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#f59e0b]"></span><div><p class="font-bold text-sm">Sunflower</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 29%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-limited">Low stock</span><div class="progress w-20"><span style="width:29%" class="bg-[#f59e0b]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#C06389]"></span><div><p class="font-bold text-sm">Dahlia</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 88%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">Peak</span><div class="progress w-20"><span style="width:88%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#C06389]"></span><div><p class="font-bold text-sm">Lavender</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 95%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">Peak</span><div class="progress w-20"><span style="width:95%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#f87171]"></span><div><p class="font-bold text-sm">Rose</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 80%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">In season</span><div class="progress w-20"><span style="width:80%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#38bdf8]"></span><div><p class="font-bold text-sm">Hydrangea</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 72%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">In season</span><div class="progress w-20"><span style="width:72%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#fbbf24]"></span><div><p class="font-bold text-sm">Zinnia</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 64%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-limited">Limited</span><div class="progress w-20"><span style="width:64%" class="bg-[#f59e0b]"></span></div></div>
+          </div>
+        </div>
+
+        <!-- Autumn -->
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-panel="autumn" hidden>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#d97706]"></span><div><p class="font-bold text-sm">Chrysanthemum</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 82%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">Peak</span><div class="progress w-20"><span style="width:82%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#C06389]"></span><div><p class="font-bold text-sm">Dahlia</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 55%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-limited">Limited</span><div class="progress w-20"><span style="width:55%" class="bg-[#f59e0b]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#8a7b66]"></span><div><p class="font-bold text-sm">Ruscus</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 90%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">In season</span><div class="progress w-20"><span style="width:90%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#f87171]"></span><div><p class="font-bold text-sm">Amaryllis</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 47%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-limited">Limited</span><div class="progress w-20"><span style="width:47%" class="bg-[#f59e0b]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#f59e0b]"></span><div><p class="font-bold text-sm">Craspedia</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 68%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">In season</span><div class="progress w-20"><span style="width:68%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#6b7280]"></span><div><p class="font-bold text-sm">Hydrangea</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 12%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-out">Out</span><div class="progress w-20"><span style="width:12%" class="bg-[#dc2626]"></span></div></div>
+          </div>
+        </div>
+
+        <!-- Winter -->
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-panel="winter" hidden>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#fff]"></span><div><p class="font-bold text-sm">Amaryllis</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 93%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">Peak</span><div class="progress w-20"><span style="width:93%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#f87171]"></span><div><p class="font-bold text-sm">Poinsettia</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 86%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">Peak</span><div class="progress w-20"><span style="width:86%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#C06389]"></span><div><p class="font-bold text-sm">Hyacinth</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 58%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-limited">Limited</span><div class="progress w-20"><span style="width:58%" class="bg-[#f59e0b]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#38bdf8]"></span><div><p class="font-bold text-sm">Iris</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 44%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-limited">Limited</span><div class="progress w-20"><span style="width:44%" class="bg-[#f59e0b]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#6ab681]"></span><div><p class="font-bold text-sm">Eucalyptus</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 100%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-inseason">All year</span><div class="progress w-20"><span style="width:100%" class="bg-[#469a62]"></span></div></div>
+          </div>
+          <div class="season-cell flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3"><span class="season-dot bg-[#C06389]"></span><div><p class="font-bold text-sm">Anemone</p><p class="text-xs text-[color:var(--ink-soft)]">Supply: 18%</p></div></div>
+            <div class="flex flex-col items-end gap-1.5"><span class="pill pill-out">Out</span><div class="progress w-20"><span style="width:18%" class="bg-[#dc2626]"></span></div></div>
+          </div>
+        </div>
+
+        <!-- Radar + note -->
+        <div class="grid gap-5 lg:grid-cols-3 mt-5">
+          <div class="chart-card reveal">
+            <h2 class="font-display text-lg font-semibold mb-4">Seasonal health</h2>
+            <div class="chart-box !h-72"><canvas id="chartSeasonal" aria-label="Seasonal stock chart" role="img"></canvas></div>
+          </div>
+          <div class="chart-card lg:col-span-2 reveal">
+            <h2 class="font-display text-lg font-semibold mb-4">Legend &amp; alerts</h2>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="pill pill-inseason">Peak season</span>
+              <span class="pill pill-limited">Limited stock</span>
+              <span class="pill pill-out">Out of stock</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-3 rounded-xl bg-[#fef3c7] text-[#92400e] p-4"><i class="fa-solid fa-triangle-exclamation mt-0.5"></i><div><p class="font-bold">Sunflowers running low</p><p class="text-xs mt-1">Current supply at 29%. Next grower delivery expected Thursday.</p></div></div>
+              <div class="flex items-start gap-3 rounded-xl bg-[#fee2e2] text-[#991b1b] p-4"><i class="fa-solid fa-circle-xmark mt-0.5"></i><div><p class="font-bold">Hydrangea out of season (Autumn)</p><p class="text-xs mt-1">Auto-substituted with Craspedia in shop listings.</p></div></div>
+              <div class="flex items-start gap-3 rounded-xl bg-[#e3f3e6] text-[#2b6340] p-4"><i class="fa-solid fa-circle-check mt-0.5"></i><div><p class="font-bold">Spring restock complete</p><p class="text-xs mt-1">Peony and tulip supply restored to 90%+ for the season.</p></div></div>
+            </div>
+            <form class="grid sm:grid-cols-4 gap-3 mt-6 border-t border-[color:var(--line)] pt-5" onsubmit="return false;">
+              <div class="sm:col-span-2"><label class="form-label" for="new-flower">Add a flower</label><input id="new-flower" class="form-input" placeholder="e.g. Sweet pea"></div>
+              <div><label class="form-label" for="new-season">Season</label>
+                <select id="new-season" class="form-select"><option>Spring</option><option>Summer</option><option>Autumn</option><option>Winter</option></select>
+              </div>
+              <div class="flex items-end"><button type="submit" class="btn btn-primary w-full">Add</button></div>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <footer class="px-6 py-5 text-center text-xs text-[color:var(--ink-soft)]">
+        © 2026 Bloomora Admin · Crafted for demo purposes
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

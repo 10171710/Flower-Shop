@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Bloomora Admin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <div class="admin-body" id="admin-body">
+
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="px-5 py-5 flex items-center gap-2.5 border-b border-white/10">
+        <img src="../assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <div>
+          <p class="font-display font-semibold text-2xl tracking-tight">Bloomora</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mt-1">Admin Panel</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-3 py-4" aria-label="Admin navigation">
+        <p class="side-section-label">Main</p>
+        <a href="index.html" class="side-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="bouquet-categories.html" class="side-link"><i class="fa-solid fa-shapes"></i> Bouquet Categories</a>
+        <a href="seasonal-availability.html" class="side-link"><i class="fa-solid fa-calendar-days"></i> Seasonal Availability</a>
+        <a href="same-day-delivery.html" class="side-link"><i class="fa-solid fa-truck-fast"></i> Same-Day Delivery</a>
+        <a href="custom-order.html" class="side-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Orders <span class="side-badge">5</span></a>
+        <p class="side-section-label">Manage</p>
+        <a href="orders.html" class="side-link"><i class="fa-solid fa-basket-shopping"></i> Orders <span class="side-badge">12</span></a>
+        <a href="users.html" class="side-link"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="messages.html" class="side-link"><i class="fa-solid fa-envelope"></i> Messages <span class="side-badge">8</span></a>
+        <p class="side-section-label">Other</p>
+        <a href="settings.html" class="side-link active" aria-current="page"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../index.html" class="side-link"><i class="fa-solid fa-globe"></i> View Website</a>
+        <a href="../login.html" class="side-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <div class="rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-bold">Studio at a glance</p>
+          <p class="text-[0.7rem] text-white/70 mt-1">Order cutoff today: 2:00 PM</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/15 overflow-hidden"><span class="block h-full w-[62%] rounded-full bg-[#fbbf24]"></span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="admin-sidebar-backdrop"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar px-4 sm:px-6 py-3 flex items-center gap-3">
+        <button type="button" class="icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden sm:block">
+          <p class="font-display text-lg font-semibold leading-tight">Settings</p>
+          <p class="text-xs text-[color:var(--ink-soft)]">Tune your studio</p>
+        </div>
+        <div class="flex-1"></div>
+        <button type="button" class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <div class="relative" data-dropdown>
+          <button type="button" class="icon-btn relative" data-dropdown-btn aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="absolute -top-0.5 -end-0.5 w-2.5 h-2.5 rounded-full bg-[#C06389] ring-2 ring-[color:var(--surface)]"></span></button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-80" data-dropdown-menu style="inset-inline-end:0">
+            <p class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Notifications</p>
+            <a href="orders.html" class="!normal-case !font-semibold"><i class="fa-solid fa-basket-shopping text-[color:var(--primary)]"></i> New order #4821 — Spring Meadow</a>
+            <a href="same-day-delivery.html" class="!normal-case !font-semibold"><i class="fa-solid fa-truck-fast text-[color:var(--honey)]"></i> 3 deliveries pending dispatch</a>
+          </div>
+        </div>
+        <div class="relative" data-dropdown>
+          <button type="button" class="flex items-center gap-2 pe-1" data-dropdown-btn aria-label="Account menu">
+            <span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+            <span class="hidden lg:block text-start leading-tight"><span class="block text-sm font-bold">Iris Bennett</span><span class="block text-[0.7rem] text-[color:var(--ink-soft)]">Super Admin</span></span>
+            <i class="fa-solid fa-chevron-down text-xs text-[color:var(--ink-soft)]"></i>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-56" data-dropdown-menu style="inset-inline-end:0">
+            <a href="settings.html"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+            <a href="../login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-semibold">Settings</h1>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-1">Manage your profile, store and preferences.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+        </div>
+
+        <!-- Settings nav -->
+        <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Settings sections" data-tabs>
+          <button type="button" class="chip active" data-tab-btn="#panel-profile" role="tab" aria-selected="true">Profile</button>
+          <button type="button" class="chip" data-tab-btn="#panel-store" role="tab" aria-selected="false">Store</button>
+          <button type="button" class="chip" data-tab-btn="#panel-delivery" role="tab" aria-selected="false">Delivery</button>
+          <button type="button" class="chip" data-tab-btn="#panel-notifications" role="tab" aria-selected="false">Notifications</button>
+        </div>
+
+        <!-- Profile -->
+        <section id="panel-profile" class="grid gap-5 lg:grid-cols-3 items-start" data-tab-panel>
+          <div class="chart-card">
+            <div class="flex flex-col items-center text-center">
+              <span class="avatar-lg bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+              <p class="font-display text-lg font-semibold mt-3">Iris Bennett</p>
+              <p class="text-sm text-[color:var(--ink-soft)]">Super Admin · Bloomora</p>
+              <button type="button" class="btn btn-outline btn-sm mt-4"><i class="fa-solid fa-camera"></i> Change Photo</button>
+            </div>
+          </div>
+          <div class="chart-card lg:col-span-2">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="set-first" class="form-label">First name</label>
+                <input id="set-first" type="text" class="form-input w-full" value="Iris">
+              </div>
+              <div>
+                <label for="set-last" class="form-label">Last name</label>
+                <input id="set-last" type="text" class="form-input w-full" value="Bennett">
+              </div>
+              <div>
+                <label for="set-email" class="form-label">Email</label>
+                <input id="set-email" type="email" class="form-input w-full" value="iris@bloomora.com">
+              </div>
+              <div>
+                <label for="set-phone" class="form-label">Phone</label>
+                <input id="set-phone" type="tel" class="form-input w-full" value="+1 555 010 2044">
+              </div>
+              <div class="sm:col-span-2">
+                <label for="set-bio" class="form-label">Short bio</label>
+                <textarea id="set-bio" rows="3" class="form-input w-full">Head florist and studio lead at Bloomora. I believe every bouquet should tell a story.</textarea>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="set-password" class="form-label">New password</label>
+                <input id="set-password" type="password" class="form-input w-full" placeholder="Leave blank to keep current">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Store -->
+        <section id="panel-store" class="hidden" data-tab-panel>
+          <div class="chart-card">
+            <p class="font-display text-lg font-semibold mb-4">Store details</p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="set-store-name" class="form-label">Store name</label>
+                <input id="set-store-name" type="text" class="form-input w-full" value="Bloomora — Flower Shop &amp; Floral Arrangements">
+              </div>
+              <div>
+                <label for="set-store-tagline" class="form-label">Tagline</label>
+                <input id="set-store-tagline" type="text" class="form-input w-full" value="Fresh flowers, delivered with heart.">
+              </div>
+              <div class="sm:col-span-2">
+                <label for="set-store-address" class="form-label">Studio address</label>
+                <input id="set-store-address" type="text" class="form-input w-full" value="128 Bloom Street, Floral District, Springfield">
+              </div>
+              <div>
+                <label for="set-store-phone" class="form-label">Studio phone</label>
+                <input id="set-store-phone" type="tel" class="form-input w-full" value="+1 555 010 2000">
+              </div>
+              <div>
+                <label for="set-store-email" class="form-label">Studio email</label>
+                <input id="set-store-email" type="email" class="form-input w-full" value="hello@bloomora.com">
+              </div>
+              <div>
+                <label for="set-store-hours" class="form-label">Opening hours</label>
+                <input id="set-store-hours" type="text" class="form-input w-full" value="Mon – Sat: 8:00 AM – 7:00 PM">
+              </div>
+              <div>
+                <label for="set-store-currency" class="form-label">Currency</label>
+                <select id="set-store-currency" class="form-input w-full">
+                  <option selected>USD — US Dollar</option>
+                  <option>EUR — Euro</option>
+                  <option>GBP — British Pound</option>
+                  <option>AED — UAE Dirham</option>
+                  <option>SAR — Saudi Riyal</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Delivery -->
+        <section id="panel-delivery" class="hidden" data-tab-panel>
+          <div class="chart-card">
+            <p class="font-display text-lg font-semibold mb-4">Delivery rules</p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="set-cutoff" class="form-label">Same-day order cutoff (time)</label>
+                <input id="set-cutoff" type="time" class="form-input w-full" value="14:00">
+              </div>
+              <div>
+                <label for="set-delivery-fee" class="form-label">Standard delivery fee</label>
+                <input id="set-delivery-fee" type="number" min="0" step="0.5" class="form-input w-full" value="8">
+              </div>
+              <div>
+                <label for="set-free-threshold" class="form-label">Free delivery over (amount)</label>
+                <input id="set-free-threshold" type="number" min="0" step="5" class="form-input w-full" value="75">
+              </div>
+              <div>
+                <label for="set-radius" class="form-label">Delivery radius (miles)</label>
+                <input id="set-radius" type="number" min="1" class="form-input w-full" value="25">
+              </div>
+            </div>
+            <div class="flex items-center gap-3 mt-5 p-4 rounded-2xl bg-[color:var(--surface-soft)]">
+              <div>
+                <p class="font-semibold text-sm">Same-day delivery enabled</p>
+                <p class="text-xs text-[color:var(--ink-soft)]">Accept orders for same-day dispatch before the cutoff.</p>
+              </div>
+              <div class="flex-1"></div>
+              <label class="switch" aria-label="Toggle same-day delivery"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notifications -->
+        <section id="panel-notifications" class="hidden" data-tab-panel>
+          <div class="chart-card">
+            <p class="font-display text-lg font-semibold mb-4">Email notifications</p>
+            <div class="flex flex-col divide-y divide-[color:var(--line)]">
+              <div class="flex items-center gap-3 py-3.5">
+                <div>
+                  <p class="font-semibold text-sm">New order placed</p>
+                  <p class="text-xs text-[color:var(--ink-soft)]">Get an alert the moment a customer orders.</p>
+                </div>
+                <div class="flex-1"></div>
+                <label class="switch" aria-label="Toggle new order notifications"><input type="checkbox" checked><span class="track"></span></label>
+              </div>
+              <div class="flex items-center gap-3 py-3.5">
+                <div>
+                  <p class="font-semibold text-sm">Low stock warning</p>
+                  <p class="text-xs text-[color:var(--ink-soft)]">Notify me when a popular stem is running low.</p>
+                </div>
+                <div class="flex-1"></div>
+                <label class="switch" aria-label="Toggle low stock notifications"><input type="checkbox" checked><span class="track"></span></label>
+              </div>
+              <div class="flex items-center gap-3 py-3.5">
+                <div>
+                  <p class="font-semibold text-sm">New contact message</p>
+                  <p class="text-xs text-[color:var(--ink-soft)]">Let me know about every new enquiry.</p>
+                </div>
+                <div class="flex-1"></div>
+                <label class="switch" aria-label="Toggle contact message notifications"><input type="checkbox" checked><span class="track"></span></label>
+              </div>
+              <div class="flex items-center gap-3 py-3.5">
+                <div>
+                  <p class="font-semibold text-sm">Weekly digest</p>
+                  <p class="text-xs text-[color:var(--ink-soft)]">A Monday summary of sales and orders.</p>
+                </div>
+                <div class="flex-1"></div>
+                <label class="switch" aria-label="Toggle weekly digest"><input type="checkbox"><span class="track"></span></label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="px-6 py-5 text-center text-xs text-[color:var(--ink-soft)]">
+        © 2026 Bloomora Admin · Crafted for demo purposes
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

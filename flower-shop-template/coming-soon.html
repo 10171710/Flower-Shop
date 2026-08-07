@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Something beautiful is on its way. Bloomora's new collection launches soon — sign up to be the first to see it.">
+  <meta name="keywords" content="coming soon, new collection, flower shop launch">
+  <meta name="author" content="Bloomora">
+  <meta property="og:title" content="Something Beautiful is Coming | Bloomora">
+  <meta property="og:description" content="Sign up for launch updates.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100 min-h-screen">
+  <main class="relative overflow-hidden min-h-screen flex items-center justify-center">
+    <div class="blob w-[24rem] h-[24rem] bg-[#C06389]/30 top-[-6rem] start-[-6rem]"></div>
+    <div class="blob w-[20rem] h-[20rem] bg-[#6ab681]/30 bottom-[-5rem] end-[-5rem]"></div>
+    <div class="blob w-72 h-72 bg-[#fbbf24]/25 top-1/3 end-1/4"></div>
+
+    <div class="container-x relative py-16 text-center">
+      <a href="index.html" class="flex items-center justify-center gap-2.5 mb-8 reveal">
+        <img src="assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <span class="font-display font-semibold text-2xl tracking-tight">Bloomora</span>
+      </a>
+
+      <span class="eyebrow justify-center reveal"><i class="fa-solid fa-seedling"></i> New collection</span>
+      <h1 class="hero-title text-4xl sm:text-6xl lg:text-7xl mt-5 reveal">Something <span class="text-gradient">beautiful</span> is blooming</h1>
+      <p class="mt-6 text-lg text-[color:var(--ink-soft)] max-w-2xl mx-auto reveal">Our spring 2026 floral collection is on its way. Join the waitlist for early access, behind-the-scenes and a launch-day discount.</p>
+
+      <!-- Countdown -->
+      <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mt-10 reveal" role="timer" aria-live="polite">
+        <div class="card p-6"><p class="font-display text-4xl font-semibold text-[color:var(--primary)]" data-unit="days">00</p><p class="text-xs font-bold uppercase tracking-widest text-[color:var(--ink-soft)] mt-1">Days</p></div>
+        <div class="card p-6"><p class="font-display text-4xl font-semibold text-[color:var(--leaf)]" data-unit="hours">00</p><p class="text-xs font-bold uppercase tracking-widest text-[color:var(--ink-soft)] mt-1">Hours</p></div>
+        <div class="card p-6"><p class="font-display text-4xl font-semibold text-[color:var(--honey)]" data-unit="minutes">00</p><p class="text-xs font-bold uppercase tracking-widest text-[color:var(--ink-soft)] mt-1">Minutes</p></div>
+        <div class="card p-6"><p class="font-display text-4xl font-semibold text-[color:var(--primary)]" data-unit="seconds">00</p><p class="text-xs font-bold uppercase tracking-widest text-[color:var(--ink-soft)] mt-1">Seconds</p></div>
+      </div>
+
+      <form class="mt-10 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto reveal" onsubmit="return false;">
+        <label class="sr-only" for="cs-email">Email address</label>
+        <input id="cs-email" class="form-input !rounded-full flex-1" type="email" placeholder="Enter your email address" required>
+        <button class="btn btn-primary btn-lg shrink-0" type="submit">Notify me <i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+
+      <div class="flex justify-center gap-2.5 mt-10 reveal">
+        <a href="https://www.facebook.com" data-app="fb://" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com" data-app="instagram://" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com" data-app="twitter://" target="_blank" rel="noopener" class="social-btn" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.youtube.com" data-app="vnd.youtube://" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <p class="mt-10 text-sm text-[color:var(--ink-soft)] reveal"><a href="index.html" class="font-bold text-[color:var(--primary)] hover:underline">← Back to the website</a></p>
+    </div>
+  </main>
+
+  <!-- Waitlist popup -->
+  <div id="cs-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="cs-modal-title">
+    <div class="absolute inset-0 bg-black/60" data-cs-close></div>
+    <div class="relative card p-8 text-center max-w-sm w-full">
+      <div class="w-16 h-16 mx-auto rounded-full grid place-items-center text-2xl text-white bg-gradient-to-br from-[#469a62] to-[#6ab681]"><i class="fa-solid fa-check"></i></div>
+      <h3 id="cs-modal-title" class="font-display text-2xl font-semibold mt-4">You're on the list!</h3>
+      <p class="text-sm text-[color:var(--ink-soft)] mt-2">We'll email you as soon as the new collection launches — no spam, ever.</p>
+      <button type="button" class="btn btn-primary w-full mt-6" data-cs-close>Got it</button>
+    </div>
+  </div>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      var form = document.querySelector('form[onsubmit="return false;"]');
+      if (!form) return;
+      var modal = document.getElementById('cs-modal');
+      var input = document.getElementById('cs-email');
+      function open() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        input.value = '';
+      }
+      function close() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!input.value || !input.value.includes('@')) {
+          input.focus();
+          return;
+        }
+        open();
+      });
+      modal.querySelectorAll('[data-cs-close]').forEach(function (el) {
+        el.addEventListener('click', close);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+      });
+    })();
+  </script>
+</body>
+</html>

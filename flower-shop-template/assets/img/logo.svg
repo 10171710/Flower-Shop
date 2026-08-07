@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bloomora">
+  <g transform="translate(32 34)">
+    <ellipse cx="0" cy="-11" rx="6.5" ry="11" fill="#F2C0D3"/>
+    <ellipse cx="0" cy="-11" rx="6.5" ry="11" fill="#E8A5BE" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-11" rx="6.5" ry="11" fill="#F2C0D3" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-11" rx="6.5" ry="11" fill="#E8A5BE" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-11" rx="6.5" ry="11" fill="#F2C0D3" transform="rotate(288)"/>
+    <circle r="7" fill="#fbbf24"/>
+  </g>
+  <path d="M32 45 C31 50 33 54 35 57 L29 57 C31 54 33 50 32 45 Z" fill="#469a62"/>
+</svg>

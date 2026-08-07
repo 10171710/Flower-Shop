@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Bloomora Admin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <div class="admin-body" id="admin-body">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="px-5 py-5 flex items-center gap-2.5 border-b border-white/10">
+        <img src="../assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <div>
+          <p class="font-display font-semibold text-2xl tracking-tight">Bloomora</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mt-1">Admin Panel</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-3 py-4" aria-label="Admin navigation">
+        <p class="side-section-label">Main</p>
+        <a href="index.html" class="side-link active" aria-current="page"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="bouquet-categories.html" class="side-link"><i class="fa-solid fa-shapes"></i> Bouquet Categories</a>
+        <a href="seasonal-availability.html" class="side-link"><i class="fa-solid fa-calendar-days"></i> Seasonal Availability</a>
+        <a href="same-day-delivery.html" class="side-link"><i class="fa-solid fa-truck-fast"></i> Same-Day Delivery</a>
+        <a href="custom-order.html" class="side-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Orders <span class="side-badge">5</span></a>
+        <p class="side-section-label">Manage</p>
+        <a href="orders.html" class="side-link"><i class="fa-solid fa-basket-shopping"></i> Orders <span class="side-badge">12</span></a>
+        <a href="users.html" class="side-link"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="messages.html" class="side-link"><i class="fa-solid fa-envelope"></i> Messages <span class="side-badge">8</span></a>
+        <p class="side-section-label">Other</p>
+        <a href="settings.html" class="side-link"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../index.html" class="side-link"><i class="fa-solid fa-globe"></i> View Website</a>
+        <a href="../login.html" class="side-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <div class="rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-bold">Studio at a glance</p>
+          <p class="text-[0.7rem] text-white/70 mt-1">Order cutoff today: 2:00 PM</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/15 overflow-hidden"><span class="block h-full w-[62%] rounded-full bg-[#fbbf24]"></span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="admin-sidebar-backdrop"></div>
+
+    <!-- Main -->
+    <div class="admin-main">
+      <header class="admin-topbar px-4 sm:px-6 py-3 flex items-center gap-3">
+        <button type="button" class="icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden sm:block">
+          <p class="font-display text-lg font-semibold leading-tight">Dashboard</p>
+          <p class="text-xs text-[color:var(--ink-soft)]">Welcome back, Iris 🌷</p>
+        </div>
+        <div class="flex-1"></div>
+        <div class="relative hidden md:block">
+          <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 start-3.5 text-sm text-[color:var(--ink-soft)]"></i>
+          <input type="search" placeholder="Search admin..." class="form-input !rounded-full !py-2 ps-10 w-64 text-sm" aria-label="Search admin">
+        </div>
+        <button type="button" class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <div class="relative" data-dropdown>
+          <button type="button" class="icon-btn relative" data-dropdown-btn aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="absolute -top-0.5 -end-0.5 w-2.5 h-2.5 rounded-full bg-[#C06389] ring-2 ring-[color:var(--surface)]"></span>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-80" data-dropdown-menu style="inset-inline-end:0">
+            <p class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Notifications</p>
+            <a href="orders.html" class="!normal-case !font-semibold"><i class="fa-solid fa-basket-shopping text-[color:var(--primary)]"></i> New order #4821 — Spring Meadow</a>
+            <a href="messages.html" class="!normal-case !font-semibold"><i class="fa-solid fa-envelope text-[color:var(--leaf)]"></i> New message from Sofia A.</a>
+            <a href="same-day-delivery.html" class="!normal-case !font-semibold"><i class="fa-solid fa-truck-fast text-[color:var(--honey)]"></i> 3 deliveries pending dispatch</a>
+            <a href="users.html" class="!normal-case !font-semibold"><i class="fa-solid fa-user-plus text-[color:var(--purple)]"></i> 2 new registered users</a>
+          </div>
+        </div>
+        <div class="relative" data-dropdown>
+          <button type="button" class="flex items-center gap-2 pe-1" data-dropdown-btn aria-label="Account menu">
+            <span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+            <span class="hidden lg:block text-start leading-tight">
+              <span class="block text-sm font-bold">Iris Bennett</span>
+              <span class="block text-[0.7rem] text-[color:var(--ink-soft)]">Super Admin</span>
+            </span>
+            <i class="fa-solid fa-chevron-down text-xs text-[color:var(--ink-soft)]"></i>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-56" data-dropdown-menu style="inset-inline-end:0">
+            <a href="settings.html"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+            <a href="../login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Page heading -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-semibold">Good morning, Iris 🌷</h1>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-1">Here's how Bloomora performed today.</p>
+          </div>
+          <div class="flex gap-2">
+            <a href="custom-order.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New Custom Order</a>
+            <a href="orders.html" class="btn btn-outline btn-sm">View Orders</a>
+          </div>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Revenue</p>
+                <p class="font-display text-3xl font-semibold mt-2">$84.2K</p>
+                <p class="text-xs mt-1.5"><span class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +12.5%</span> vs last month</p>
+              </div>
+              <div class="stat-icon bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]"><i class="fa-solid fa-sack-dollar"></i></div>
+            </div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Orders Today</p>
+                <p class="font-display text-3xl font-semibold mt-2">58</p>
+                <p class="text-xs mt-1.5"><span class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +8.2%</span> vs yesterday</p>
+              </div>
+              <div class="stat-icon bg-gradient-to-br from-[#469a62] to-[#6ab681]"><i class="fa-solid fa-basket-shopping"></i></div>
+            </div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Bouquets Sold</p>
+                <p class="font-display text-3xl font-semibold mt-2">1,284</p>
+                <p class="text-xs mt-1.5"><span class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +4.1%</span> this week</p>
+              </div>
+              <div class="stat-icon bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]"><i class="fa-solid fa-flower"></i></div>
+            </div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Avg. Rating</p>
+                <p class="font-display text-3xl font-semibold mt-2">4.9 <span class="text-base">★</span></p>
+                <p class="text-xs mt-1.5"><span class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +0.1</span> from 1,314 reviews</p>
+              </div>
+              <div class="stat-icon bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]"><i class="fa-solid fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row -->
+        <div class="grid gap-5 lg:grid-cols-3 mt-5">
+          <div class="chart-card lg:col-span-2 reveal">
+            <div class="flex items-center justify-between mb-4">
+              <div><h2 class="font-display text-lg font-semibold">Revenue</h2><p class="text-xs text-[color:var(--ink-soft)]">Last 8 months</p></div>
+              <span class="badge badge-leaf"><i class="fa-solid fa-arrow-trend-up"></i> Best month yet</span>
+            </div>
+            <div class="chart-box"><canvas id="chartRevenue" aria-label="Revenue chart" role="img"></canvas></div>
+          </div>
+          <div class="chart-card reveal">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="font-display text-lg font-semibold">Delivery Split</h2>
+            </div>
+            <div class="chart-box !h-56"><canvas id="chartDelivery" aria-label="Delivery methods chart" role="img"></canvas></div>
+            <div class="grid grid-cols-2 gap-2 mt-4 text-xs">
+              <div class="rounded-xl bg-[color:var(--surface-2)] p-3"><p class="text-[color:var(--ink-soft)]">Same-day today</p><p class="font-bold mt-0.5">27 orders</p></div>
+              <div class="rounded-xl bg-[color:var(--surface-2)] p-3"><p class="text-[color:var(--ink-soft)]">Cutoff countdown</p><p class="font-bold mt-0.5 text-[color:var(--honey)]">1h 12m</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders chart + quick overview -->
+        <div class="grid gap-5 lg:grid-cols-3 mt-5">
+          <div class="chart-card lg:col-span-2 reveal">
+            <div class="flex items-center justify-between mb-4">
+              <div><h2 class="font-display text-lg font-semibold">Orders this week</h2><p class="text-xs text-[color:var(--ink-soft)]">Mon – Sun</p></div>
+              <span class="badge badge-primary">Peak: Saturday</span>
+            </div>
+            <div class="chart-box"><canvas id="chartOrders" aria-label="Weekly orders chart" role="img"></canvas></div>
+          </div>
+          <div class="chart-card reveal">
+            <h2 class="font-display text-lg font-semibold mb-4">Top occasions</h2>
+            <ul class="space-y-4">
+              <li>
+                <div class="flex items-center justify-between text-sm mb-1.5"><span class="font-bold"><i class="fa-solid fa-heart text-[color:var(--primary)] me-2"></i>Valentine</span><span class="font-bold">142</span></div>
+                <div class="progress"><span style="width:88%" class="bg-gradient-to-r from-[#D985A5] to-[#E8A5BE]"></span></div>
+              </li>
+              <li>
+                <div class="flex items-center justify-between text-sm mb-1.5"><span class="font-bold"><i class="fa-solid fa-cake-candles text-[color:var(--honey)] me-2"></i>Birthday</span><span class="font-bold">118</span></div>
+                <div class="progress"><span style="width:73%" class="bg-gradient-to-r from-[#f59e0b] to-[#fbbf24]"></span></div>
+              </li>
+              <li>
+                <div class="flex items-center justify-between text-sm mb-1.5"><span class="font-bold"><i class="fa-solid fa-ring text-[color:var(--purple)] me-2"></i>Wedding</span><span class="font-bold">96</span></div>
+                <div class="progress"><span style="width:59%" class="bg-gradient-to-r from-[#D985A5] to-[#E8A5BE]"></span></div>
+              </li>
+              <li>
+                <div class="flex items-center justify-between text-sm mb-1.5"><span class="font-bold"><i class="fa-solid fa-champagne-glasses text-[color:var(--leaf)] me-2"></i>Anniversary</span><span class="font-bold">84</span></div>
+                <div class="progress"><span style="width:52%" class="bg-gradient-to-r from-[#469a62] to-[#6ab681]"></span></div>
+              </li>
+              <li>
+                <div class="flex items-center justify-between text-sm mb-1.5"><span class="font-bold"><i class="fa-solid fa-dove text-[color:var(--blue)] me-2"></i>Sympathy</span><span class="font-bold">63</span></div>
+                <div class="progress"><span style="width:39%" class="bg-gradient-to-r from-[#38bdf8] to-[#7dd3fc]"></span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Recent orders -->
+        <div class="chart-card mt-5 reveal">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div><h2 class="font-display text-lg font-semibold">Recent orders</h2><p class="text-xs text-[color:var(--ink-soft)]">Latest 6 transactions</p></div>
+            <a href="orders.html" class="btn btn-sm btn-outline">All orders <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="admin-table min-w-[44rem]">
+              <thead>
+                <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Method</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="font-bold">#4821</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#469a62] to-[#6ab681]">SM</span> Sara Mendez</div></td><td>Spring Meadow</td><td class="font-bold">$45.00</td><td><span class="pill pill-delivered">Same-day</span></td><td><span class="pill pill-pending">Preparing</span></td></tr>
+                <tr><td class="font-bold">#4820</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">DK</span> Daniel Kim</div></td><td>Sweet Serenade</td><td class="font-bold">$59.00</td><td><span class="pill pill-delivered">Scheduled</span></td><td><span class="pill pill-delivered">Delivered</span></td></tr>
+                <tr><td class="font-bold">#4819</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]">LR</span> Lena Ruiz</div></td><td>Ivory Grace + vase</td><td class="font-bold">$91.00</td><td><span class="pill pill-delivered">Pickup</span></td><td><span class="pill pill-new">New</span></td></tr>
+                <tr><td class="font-bold">#4818</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]">OJ</span> Omar Johnson</div></td><td>Lavender Haze</td><td class="font-bold">$55.00</td><td><span class="pill pill-delivered">Same-day</span></td><td><span class="pill pill-delivered">Delivered</span></td></tr>
+                <tr><td class="font-bold">#4817</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#38bdf8] to-[#7dd3fc]">PN</span> Priya Nair</div></td><td>Golden Hour ×2</td><td class="font-bold">$98.00</td><td><span class="pill pill-delivered">Next-day</span></td><td><span class="pill pill-cancelled">Cancelled</span></td></tr>
+                <tr><td class="font-bold">#4816</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f87171] to-[#fca5a5]">TW</span> Theo Wilson</div></td><td>Dutch Romance</td><td class="font-bold">$49.00</td><td><span class="pill pill-delivered">Same-day</span></td><td><span class="pill pill-delivered">Delivered</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <footer class="px-6 py-5 text-center text-xs text-[color:var(--ink-soft)]">
+        © 2026 Bloomora Admin · Crafted for demo purposes
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

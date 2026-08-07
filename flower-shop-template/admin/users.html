@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users | Bloomora Admin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <div class="admin-body" id="admin-body">
+
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="px-5 py-5 flex items-center gap-2.5 border-b border-white/10">
+        <img src="../assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <div>
+          <p class="font-display font-semibold text-2xl tracking-tight">Bloomora</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mt-1">Admin Panel</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-3 py-4" aria-label="Admin navigation">
+        <p class="side-section-label">Main</p>
+        <a href="index.html" class="side-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="bouquet-categories.html" class="side-link"><i class="fa-solid fa-shapes"></i> Bouquet Categories</a>
+        <a href="seasonal-availability.html" class="side-link"><i class="fa-solid fa-calendar-days"></i> Seasonal Availability</a>
+        <a href="same-day-delivery.html" class="side-link"><i class="fa-solid fa-truck-fast"></i> Same-Day Delivery</a>
+        <a href="custom-order.html" class="side-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Orders <span class="side-badge">5</span></a>
+        <p class="side-section-label">Manage</p>
+        <a href="orders.html" class="side-link"><i class="fa-solid fa-basket-shopping"></i> Orders <span class="side-badge">12</span></a>
+        <a href="users.html" class="side-link active" aria-current="page"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="messages.html" class="side-link"><i class="fa-solid fa-envelope"></i> Messages <span class="side-badge">8</span></a>
+        <p class="side-section-label">Other</p>
+        <a href="settings.html" class="side-link"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../index.html" class="side-link"><i class="fa-solid fa-globe"></i> View Website</a>
+        <a href="../login.html" class="side-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <div class="rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-bold">Studio at a glance</p>
+          <p class="text-[0.7rem] text-white/70 mt-1">Order cutoff today: 2:00 PM</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/15 overflow-hidden"><span class="block h-full w-[62%] rounded-full bg-[#fbbf24]"></span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="admin-sidebar-backdrop"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar px-4 sm:px-6 py-3 flex items-center gap-3">
+        <button type="button" class="icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden sm:block">
+          <p class="font-display text-lg font-semibold leading-tight">Users</p>
+          <p class="text-xs text-[color:var(--ink-soft)]">Manage your flower community</p>
+        </div>
+        <div class="flex-1"></div>
+        <button type="button" class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <div class="relative" data-dropdown>
+          <button type="button" class="icon-btn relative" data-dropdown-btn aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="absolute -top-0.5 -end-0.5 w-2.5 h-2.5 rounded-full bg-[#C06389] ring-2 ring-[color:var(--surface)]"></span></button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-80" data-dropdown-menu style="inset-inline-end:0">
+            <p class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Notifications</p>
+            <a href="orders.html" class="!normal-case !font-semibold"><i class="fa-solid fa-basket-shopping text-[color:var(--primary)]"></i> New order #4821 — Spring Meadow</a>
+            <a href="same-day-delivery.html" class="!normal-case !font-semibold"><i class="fa-solid fa-truck-fast text-[color:var(--honey)]"></i> 3 deliveries pending dispatch</a>
+          </div>
+        </div>
+        <div class="relative" data-dropdown>
+          <button type="button" class="flex items-center gap-2 pe-1" data-dropdown-btn aria-label="Account menu">
+            <span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+            <span class="hidden lg:block text-start leading-tight"><span class="block text-sm font-bold">Iris Bennett</span><span class="block text-[0.7rem] text-[color:var(--ink-soft)]">Super Admin</span></span>
+            <i class="fa-solid fa-chevron-down text-xs text-[color:var(--ink-soft)]"></i>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-56" data-dropdown-menu style="inset-inline-end:0">
+            <a href="settings.html"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+            <a href="../login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-semibold">Users</h1>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-1">Browse subscribers, customers and staff.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Invite User</button>
+        </div>
+
+        <!-- Mini stats -->
+        <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4 mb-5">
+          <div class="stat-card reveal"><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Total users</p><p class="font-display text-3xl font-semibold mt-2">2,418</p></div>
+          <div class="stat-card reveal"><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Customers</p><p class="font-display text-3xl font-semibold mt-2 text-[color:var(--primary)]">2,210</p></div>
+          <div class="stat-card reveal"><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Subscribers</p><p class="font-display text-3xl font-semibold mt-2 text-[color:var(--leaf)]">186</p></div>
+          <div class="stat-card reveal"><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Staff</p><p class="font-display text-3xl font-semibold mt-2 text-[color:var(--honey)]">22</p></div>
+        </div>
+
+        <!-- Filter + search -->
+        <div class="chart-card reveal">
+          <div class="flex flex-col lg:flex-row lg:items-center gap-4 mb-4">
+            <div class="relative flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 start-3.5 text-sm text-[color:var(--ink-soft)]"></i>
+              <input id="table-search" type="search" placeholder="Search by name, email or phone..." class="form-input !rounded-full !py-2.5 ps-10 w-full" aria-label="Search users">
+            </div>
+            <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by role">
+              <button type="button" class="chip active" data-status-filter="all">All</button>
+              <button type="button" class="chip" data-status-filter="customer">Customers</button>
+              <button type="button" class="chip" data-status-filter="subscriber">Subscribers</button>
+              <button type="button" class="chip" data-status-filter="staff">Staff</button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="admin-table min-w-[54rem]">
+              <thead>
+                <tr><th>User</th><th>Contact</th><th>Role</th><th>Orders</th><th>Joined</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr data-status="customer"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span><div><p class="font-bold leading-tight">Iris Bennett</p><p class="text-xs text-[color:var(--ink-soft)]">@irisbennett</p></div></div></td><td><p class="font-medium">iris@bloomora.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 010 2044</p></td><td><span class="pill pill-admin">Admin</span></td><td class="font-bold">128</td><td>Jan 12, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="customer"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#469a62] to-[#6ab681]">SM</span><div><p class="font-bold leading-tight">Sara Mendez</p><p class="text-xs text-[color:var(--ink-soft)]">@saramendez</p></div></div></td><td><p class="font-medium">sara@example.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 011 3421</p></td><td><span class="pill pill-customer">Customer</span></td><td class="font-bold">14</td><td>Feb 03, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="staff"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]">KL</span><div><p class="font-bold leading-tight">Kai Lee</p><p class="text-xs text-[color:var(--ink-soft)]">@kailee</p></div></div></td><td><p class="font-medium">kai@bloomora.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 012 7789</p></td><td><span class="pill pill-staff">Florist</span></td><td class="font-bold">—</td><td>Jan 20, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="subscriber"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]">OJ</span><div><p class="font-bold leading-tight">Omar Johnson</p><p class="text-xs text-[color:var(--ink-soft)]">@omarj</p></div></div></td><td><p class="font-medium">omar@example.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 013 2290</p></td><td><span class="pill pill-subscriber">Subscriber</span></td><td class="font-bold">3</td><td>Mar 15, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="customer"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#38bdf8] to-[#7dd3fc]">PN</span><div><p class="font-bold leading-tight">Priya Nair</p><p class="text-xs text-[color:var(--ink-soft)]">@priyanair</p></div></div></td><td><p class="font-medium">priya@example.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 014 8812</p></td><td><span class="pill pill-customer">Customer</span></td><td class="font-bold">9</td><td>Mar 02, 2026</td><td><span class="pill pill-blocked">Blocked</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="subscriber"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f87171] to-[#fca5a5]">TW</span><div><p class="font-bold leading-tight">Theo Wilson</p><p class="text-xs text-[color:var(--ink-soft)]">@theow</p></div></div></td><td><p class="font-medium">theo@example.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 015 3327</p></td><td><span class="pill pill-subscriber">Subscriber</span></td><td class="font-bold">0</td><td>Apr 21, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="staff"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#469a62] to-[#6ab681]">AC</span><div><p class="font-bold leading-tight">Amelia Chen</p><p class="text-xs text-[color:var(--ink-soft)]">@ameliachen</p></div></div></td><td><p class="font-medium">amelia@bloomora.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 016 9901</p></td><td><span class="pill pill-staff">Designer</span></td><td class="font-bold">—</td><td>Feb 18, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="customer"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]">MR</span><div><p class="font-bold leading-tight">Marcus Reed</p><p class="text-xs text-[color:var(--ink-soft)]">@marcusreed</p></div></div></td><td><p class="font-medium">marcus@example.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 017 4455</p></td><td><span class="pill pill-customer">Customer</span></td><td class="font-bold">31</td><td>Jan 27, 2026</td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+                <tr data-status="customer"><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">SA</span><div><p class="font-bold leading-tight">Sofia Alvarez</p><p class="text-xs text-[color:var(--ink-soft)]">@sofiaa</p></div></div></td><td><p class="font-medium">sofia@example.com</p><p class="text-xs text-[color:var(--ink-soft)]">+1 555 018 6623</p></td><td><span class="pill pill-customer">Customer</span></td><td class="font-bold">7</td><td>May 09, 2026</td><td><span class="pill pill-inactive">Inactive</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Manage</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <nav class="flex items-center justify-center gap-2 mt-6" aria-label="Pagination">
+            <button type="button" class="icon-btn" aria-label="Previous page"><i class="fa-solid fa-arrow-left"></i></button>
+            <button type="button" class="chip active" aria-current="page">1</button>
+            <button type="button" class="chip">2</button>
+            <button type="button" class="chip">3</button>
+            <span class="px-1 text-[color:var(--ink-soft)]">…</span>
+            <button type="button" class="chip">48</button>
+            <button type="button" class="icon-btn" aria-label="Next page"><i class="fa-solid fa-arrow-right"></i></button>
+          </nav>
+        </div>
+      </main>
+
+      <footer class="px-6 py-5 text-center text-xs text-[color:var(--ink-soft)]">
+        © 2026 Bloomora Admin · Crafted for demo purposes
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

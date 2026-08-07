@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Bloomora's journal — flower care guides, seasonal trends, wedding inspiration and styling tips. Search and filter by category.">
+  <meta name="keywords" content="flower blog, flower care guide, floral trends, wedding flower ideas, flower styling tips">
+  <meta name="author" content="Bloomora">
+  <meta property="og:title" content="Journal – Flower Care &amp; Trends | Bloomora">
+  <meta property="og:description" content="Fresh ideas and care guides from our florists.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="blob w-72 h-72 bg-[#C06389]/25 top-[-5rem] start-[-4rem]"></div>
+      <div class="container-x relative">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span>
+          <span aria-current="page">Blog</span>
+        </nav>
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl reveal">The <span class="text-gradient">Bloomora Journal</span></h1>
+        <p class="mt-5 text-lg text-[color:var(--ink-soft)] max-w-2xl reveal">Care guides, seasonal trends and behind-the-studio stories from our florists.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x grid lg:grid-cols-3 gap-10">
+        <!-- Articles -->
+        <div class="lg:col-span-2">
+          <!-- Search + filters -->
+          <div class="card p-5 mb-8 reveal">
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="relative flex-1">
+                <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 start-4 text-[color:var(--ink-soft)]"></i>
+                <label class="sr-only" for="blog-search">Search articles</label>
+                <input id="blog-search" class="form-input !rounded-full ps-11" type="search" placeholder="Search articles, flowers, guides...">
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-4" role="group" aria-label="Filter by category">
+              <button type="button" class="chip active" data-filter="all">All</button>
+              <button type="button" class="chip" data-filter="care">Care Guides</button>
+              <button type="button" class="chip" data-filter="trends">Trends</button>
+              <button type="button" class="chip" data-filter="wedding">Weddings</button>
+              <button type="button" class="chip" data-filter="season">Seasons</button>
+            </div>
+          </div>
+
+          <div id="blog-grid" class="grid gap-7 sm:grid-cols-2">
+            <article class="blog-card card card-hover overflow-hidden reveal" data-title="10 flowers that bloom beautifully indoors care guide houseplants" data-category="care" data-tags="indoor care guide houseplants flowers">
+              <a href="blog-details.html?slug=indoor-blooms" class="block"><div class="img-frame !rounded-none"><img src="assets/img/blog-indoor-blooms.jpg" alt="Indoor blooming flowers"></div></a>
+              <div class="p-6">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--ink-soft)] mb-3">
+                  <span class="badge badge-primary">Care Guides</span><span>Feb 18, 2026</span>
+                </div>
+                <h2 class="font-display text-xl font-semibold leading-snug"><a href="blog-details.html?slug=indoor-blooms" class="hover:text-[color:var(--primary)] transition-colors">10 flowers that bloom beautifully indoors</a></h2>
+                <p class="text-sm text-[color:var(--ink-soft)] mt-3">Bright corners, low light, and windowsills — which blooms thrive inside your home.</p>
+                <div class="flex items-center justify-between mt-5 text-xs text-[color:var(--ink-soft)]">
+                  <span class="flex items-center gap-2"><span class="avatar-initials w-7 h-7 text-[0.6rem] bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span> Iris Bennett</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 6 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card card card-hover overflow-hidden reveal" data-title="2026 wedding flower trends decoded trends wedding" data-category="trends" data-tags="wedding trends 2026 flowers">
+              <a href="blog-details.html?slug=wedding-trends" class="block"><div class="img-frame !rounded-none"><img src="assets/img/blog-wedding-trends.jpg" alt="Wedding flower trends 2026"></div></a>
+              <div class="p-6">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--ink-soft)] mb-3">
+                  <span class="badge badge-honey">Trends</span><span>Feb 08, 2026</span>
+                </div>
+                <h2 class="font-display text-xl font-semibold leading-snug"><a href="blog-details.html?slug=wedding-trends" class="hover:text-[color:var(--primary)] transition-colors">2026 wedding flower trends, decoded</a></h2>
+                <p class="text-sm text-[color:var(--ink-soft)] mt-3">Hanging gardens, candle-lit blooms and the return of the hand-tied bouquet.</p>
+                <div class="flex items-center justify-between mt-5 text-xs text-[color:var(--ink-soft)]">
+                  <span class="flex items-center gap-2"><span class="avatar-initials w-7 h-7 text-[0.6rem] bg-gradient-to-br from-[#469a62] to-[#6ab681]">TP</span> Theo Park</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 8 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card card card-hover overflow-hidden reveal" data-title="how to keep a bouquet fresh for 7 plus days care guide" data-category="care" data-tags="care guide fresh bouquet flowers">
+              <a href="blog-details.html?slug=bouquet-fresh" class="block"><div class="img-frame !rounded-none"><img src="assets/img/blog-bouquet-fresh.jpg" alt="Fresh bouquet care"></div></a>
+              <div class="p-6">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--ink-soft)] mb-3">
+                  <span class="badge badge-leaf">Guides</span><span>Jan 29, 2026</span>
+                </div>
+                <h2 class="font-display text-xl font-semibold leading-snug"><a href="blog-details.html?slug=bouquet-fresh" class="hover:text-[color:var(--primary)] transition-colors">How to keep a bouquet fresh for 7+ days</a></h2>
+                <p class="text-sm text-[color:var(--ink-soft)] mt-3">Our florists' exact recipe: water, stem angle, and a surprising fridge trick.</p>
+                <div class="flex items-center justify-between mt-5 text-xs text-[color:var(--ink-soft)]">
+                  <span class="flex items-center gap-2"><span class="avatar-initials w-7 h-7 text-[0.6rem] bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]">ML</span> Maya López</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 5 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card card card-hover overflow-hidden reveal" data-title="flower colour meanings guide what your bouquet says trends" data-category="trends" data-tags="colour meaning flower language guide">
+              <a href="blog-details.html?slug=flower-colours" class="block"><div class="img-frame !rounded-none"><img src="assets/img/blog-flower-colours.jpg" alt="Flower colour meanings"></div></a>
+              <div class="p-6">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--ink-soft)] mb-3">
+                  <span class="badge badge-primary">Trends</span><span>Jan 15, 2026</span>
+                </div>
+                <h2 class="font-display text-xl font-semibold leading-snug"><a href="blog-details.html?slug=flower-colours" class="hover:text-[color:var(--primary)] transition-colors">Flower colour meanings: what your bouquet says</a></h2>
+                <p class="text-sm text-[color:var(--ink-soft)] mt-3">From blush pink devotion to golden friendship, decode the language of petals.</p>
+                <div class="flex items-center justify-between mt-5 text-xs text-[color:var(--ink-soft)]">
+                  <span class="flex items-center gap-2"><span class="avatar-initials w-7 h-7 text-[0.6rem] bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]">IB</span> Iris Bennett</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 7 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card card card-hover overflow-hidden reveal" data-title="peonies everything you need to know season care guide" data-category="season" data-tags="peonies spring season care flowers">
+              <a href="blog-details.html?slug=peonies-101" class="block"><div class="img-frame !rounded-none"><img src="assets/img/blog-peonies-101.jpg" alt="Peonies in season"></div></a>
+              <div class="p-6">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--ink-soft)] mb-3">
+                  <span class="badge badge-leaf">Seasons</span><span>Jan 05, 2026</span>
+                </div>
+                <h2 class="font-display text-xl font-semibold leading-snug"><a href="blog-details.html?slug=peonies-101" class="hover:text-[color:var(--primary)] transition-colors">Peonies 101: buying, storing &amp; caring for them</a></h2>
+                <p class="text-sm text-[color:var(--ink-soft)] mt-3">The short peony season is precious — here's how to make every day count.</p>
+                <div class="flex items-center justify-between mt-5 text-xs text-[color:var(--ink-soft)]">
+                  <span class="flex items-center gap-2"><span class="avatar-initials w-7 h-7 text-[0.6rem] bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">TP</span> Theo Park</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 6 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card card card-hover overflow-hidden reveal" data-title="styling your coffee table with flowers interior tips wedding" data-category="wedding" data-tags="styling coffee table interior home tips flowers">
+              <a href="blog-details.html?slug=table-styling" class="block"><div class="img-frame !rounded-none"><img src="assets/img/blog-table-styling.jpg" alt="Coffee table floral styling"></div></a>
+              <div class="p-6">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--ink-soft)] mb-3">
+                  <span class="badge badge-honey">Weddings</span><span>Dec 20, 2025</span>
+                </div>
+                <h2 class="font-display text-xl font-semibold leading-snug"><a href="blog-details.html?slug=table-styling" class="hover:text-[color:var(--primary)] transition-colors">Table styling secrets from our event florists</a></h2>
+                <p class="text-sm text-[color:var(--ink-soft)] mt-3">Low centrepieces, taper candles and the rule of odd numbers, explained.</p>
+                <div class="flex items-center justify-between mt-5 text-xs text-[color:var(--ink-soft)]">
+                  <span class="flex items-center gap-2"><span class="avatar-initials w-7 h-7 text-[0.6rem] bg-gradient-to-br from-[#469a62] to-[#6ab681]">ML</span> Maya López</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 4 min read</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Empty state -->
+          <div id="blog-empty" class="hidden flex-col items-center text-center py-16 reveal" style="display:none">
+            <i class="fa-solid fa-seedling text-5xl text-[color:var(--ink-soft)]"></i>
+            <h3 class="font-display text-xl font-semibold mt-4">Nothing matched your search</h3>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-2">Try a different keyword or category.</p>
+          </div>
+
+          <!-- Pagination -->
+          <nav class="flex items-center justify-center gap-2 mt-12" aria-label="Pagination">
+            <a href="coming-soon.html" class="icon-btn" aria-label="Previous page"><i class="fa-solid fa-arrow-left"></i></a>
+            <button type="button" class="chip active" aria-current="page">1</button>
+            <a href="coming-soon.html" class="chip">2</a>
+            <a href="coming-soon.html" class="chip">3</a>
+            <span class="px-1 text-[color:var(--ink-soft)]">…</span>
+            <a href="coming-soon.html" class="chip">8</a>
+            <a href="coming-soon.html" class="icon-btn" aria-label="Next page"><i class="fa-solid fa-arrow-right"></i></a>
+          </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8 lg:sticky lg:top-24 self-start">
+          <div class="card p-6 reveal">
+            <h3 class="font-display text-lg font-semibold mb-4">Categories</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-hand-holding-heart text-[color:var(--primary)]"></i> Care Guides</span><span class="badge badge-neutral">18</span></a></li>
+              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-wand-magic-sparkles text-[color:var(--honey)]"></i> Trends</span><span class="badge badge-neutral">12</span></a></li>
+              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-ring text-[color:var(--leaf)]"></i> Weddings</span><span class="badge badge-neutral">9</span></a></li>
+              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-cloud-sun text-[color:var(--primary)]"></i> Seasons</span><span class="badge badge-neutral">7</span></a></li>
+            </ul>
+          </div>
+
+          <div class="card p-6 reveal">
+            <h3 class="font-display text-lg font-semibold mb-4">Recent posts</h3>
+            <ul class="space-y-5">
+              <li class="flex gap-3">
+                <img src="assets/img/blog-thumb-indoor-blooms.jpg" alt="" class="w-16 h-16 rounded-xl object-cover">
+                <div><a href="blog-details.html?slug=indoor-blooms" class="font-bold text-sm leading-snug hover:text-[color:var(--primary)] transition-colors">10 flowers that bloom beautifully indoors</a><p class="text-xs text-[color:var(--ink-soft)] mt-1">Feb 18, 2026</p></div>
+              </li>
+              <li class="flex gap-3">
+                <img src="assets/img/blog-thumb-wedding-trends.jpg" alt="" class="w-16 h-16 rounded-xl object-cover">
+                <div><a href="blog-details.html?slug=wedding-trends" class="font-bold text-sm leading-snug hover:text-[color:var(--primary)] transition-colors">2026 wedding flower trends, decoded</a><p class="text-xs text-[color:var(--ink-soft)] mt-1">Feb 08, 2026</p></div>
+              </li>
+              <li class="flex gap-3">
+                <img src="assets/img/blog-thumb-bouquet-fresh.jpg" alt="" class="w-16 h-16 rounded-xl object-cover">
+                <div><a href="blog-details.html?slug=bouquet-fresh" class="font-bold text-sm leading-snug hover:text-[color:var(--primary)] transition-colors">How to keep a bouquet fresh for 7+ days</a><p class="text-xs text-[color:var(--ink-soft)] mt-1">Jan 29, 2026</p></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rounded-4xl bg-gradient-to-br from-[#5E2639] to-[#A24B6E] text-white p-7 relative overflow-hidden reveal">
+            <div class="bg-dots absolute inset-0 opacity-15"></div>
+            <div class="relative">
+              <i class="fa-solid fa-envelope-open-text text-2xl"></i>
+              <h3 class="font-display text-xl font-semibold mt-3">Never miss a bloom</h3>
+              <p class="text-sm text-white/85 mt-2">Get our monthly letter with care tips and subscriber-only deals.</p>
+              <form class="mt-4 flex flex-col gap-2 js-subscribe" onsubmit="return false;">
+                <label class="sr-only" for="blog-nl">Email</label>
+                <input id="blog-nl" class="form-input !rounded-full !border-0" type="email" placeholder="Your email">
+                <button class="btn btn-light" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

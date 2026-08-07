@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Track your Bloomora flower orders. View order history, payment method and delivery details.">
+  <meta name="author" content="Bloomora">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="blob w-72 h-72 bg-[#f59e0b]/25 top-[-5rem] end-[-4rem]"></div>
+      <div class="container-x relative">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span>
+          <span aria-current="page">My Orders</span>
+        </nav>
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl reveal">My <span class="text-gradient">orders</span></h1>
+        <p class="mt-5 text-lg text-[color:var(--ink-soft)] max-w-2xl reveal">Every bouquet you've ordered, in one place.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x">
+
+        <!-- Login required -->
+        <div id="orders-auth" class="hidden">
+          <div class="card max-w-md mx-auto p-10 text-center reveal">
+            <span class="pop-icon pop-icon-warn"><i class="fa-solid fa-user-lock"></i></span>
+            <h3 class="font-display text-2xl font-semibold mt-4">Sign in to view your orders</h3>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-2">Your orders are linked to your account.</p>
+            <a href="login.html" id="orders-login-next" class="btn btn-primary w-full mt-6"><i class="fa-solid fa-right-to-bracket"></i> Login to view orders</a>
+            <a href="register.html" id="orders-register-next" class="btn btn-outline w-full mt-2">Create an account</a>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div id="orders-empty" class="hidden">
+          <div class="card max-w-md mx-auto p-10 text-center reveal">
+            <i class="fa-solid fa-box-open text-4xl text-[color:var(--ink-soft)] opacity-60"></i>
+            <h3 class="font-display text-2xl font-semibold mt-4">No orders yet</h3>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-2">When you place an order it will show up here.</p>
+            <a href="index-floral.html" class="btn btn-primary btn-lg mt-6">Shop bouquets <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Orders list -->
+        <div id="orders-list" class="max-w-4xl mx-auto space-y-6 hidden"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

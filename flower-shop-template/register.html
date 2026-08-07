@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Create your Bloomora account — track orders, manage flower subscriptions and get 15% off your first bouquet.">
+  <meta name="keywords" content="flower shop register, create account, flower subscription sign up">
+  <meta name="author" content="Bloomora">
+  <meta property="og:title" content="Create an Account | Bloomora">
+  <meta property="og:description" content="Join Bloomora and get 15% off your first order.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .eyebrow::before { display: none; }
+  </style>
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header">
+    <div class="nav-root">
+      <div class="nav-shell">
+        <div class="container-x flex items-center gap-3 py-3.5">
+          <a class="flex items-center gap-2.5" href="index.html" aria-label="Bloomora home">
+            <img src="assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+            <span class="font-display font-semibold text-2xl tracking-tight">Bloomora</span>
+          </a>
+          <div class="ms-auto flex items-center gap-3">
+            <button type="button" class="icon-btn" id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle color theme">
+              <i class="fa-solid fa-moon"></i></button>
+            <button type="button" class="icon-btn" id="rtl-toggle" title="Toggle RTL / LTR layout" aria-label="Toggle text direction" aria-pressed="false">
+              <i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section min-h-[70vh] flex items-center">
+      <div class="container-x">
+        <div class="max-w-lg mx-auto">
+          <!-- Form card -->
+          <div class="card p-8 sm:p-10 flex flex-col justify-center text-center reveal">
+            <span class="eyebrow justify-center">Join the studio</span>
+            <h1 class="section-title text-3xl sm:text-4xl mt-3">Create your account</h1>
+            <p class="mt-3 text-sm text-[color:var(--ink-soft)]">Already have an account? <a href="login.html" id="rg-login-link" class="font-bold text-[color:var(--primary)] hover:underline">Sign in</a></p>
+
+            <form class="mt-8 space-y-5 text-start" id="register-form" novalidate>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="form-label" for="rg-first">First name</label><input id="rg-first" class="form-input" type="text" placeholder="Jane" required></div>
+                <div><label class="form-label" for="rg-last">Last name</label><input id="rg-last" class="form-input" type="text" placeholder="Doe" required></div>
+              </div>
+              <div><label class="form-label" for="rg-email">Email address</label><input id="rg-email" class="form-input" type="email" placeholder="you@example.com" required></div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="form-label" for="rg-pass">Password</label><input id="rg-pass" class="form-input" type="password" placeholder="Min. 8 characters" required></div>
+                <div><label class="form-label" for="rg-pass2">Confirm password</label><input id="rg-pass2" class="form-input" type="password" placeholder="Repeat password" required></div>
+              </div>
+              <label class="form-check">
+                <input type="checkbox" id="rg-terms">
+                <span>I agree to the <a href="#" class="font-bold text-[color:var(--primary)] hover:underline">Terms</a> and <a href="#" class="font-bold text-[color:var(--primary)] hover:underline">Privacy Policy</a></span>
+              </label>
+              <button type="submit" class="btn btn-primary w-full btn-lg">Create account <i class="fa-solid fa-user-plus"></i></button>
+              <p class="hidden text-sm font-bold text-red-600" id="rg-error"></p>
+            </form>
+
+            <div class="flex items-center gap-4 my-6">
+              <span class="h-px flex-1 bg-[color:var(--line)]"></span>
+              <span class="text-xs font-bold text-[color:var(--ink-soft)]">or sign up with</span>
+              <span class="h-px flex-1 bg-[color:var(--line)]"></span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" class="btn btn-outline" id="google-btn"><i class="fa-brands fa-google"></i> Google</button>
+              <button type="button" class="btn btn-outline" id="apple-btn"><i class="fa-brands fa-apple"></i> Apple</button>
+            </div>
+            <p class="hidden mt-4 text-center text-sm font-bold text-[color:var(--primary-dark)]" id="social-msg"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var form = document.getElementById('register-form');
+      var err = document.getElementById('rg-error');
+      var next = new URLSearchParams(window.location.search).get('next');
+      var dest = (next && next.indexOf('://') === -1 && next.charAt(0) !== '/') ? next : 'index.html';
+      var logLink = document.getElementById('rg-login-link');
+      if (logLink && next) logLink.href = 'login.html?next=' + encodeURIComponent(next);
+      if (!form || !window.BloomAuth) return;
+      if (window.BloomAuth.current()) { window.location.href = dest; return; }
+      function show(msg) { err.textContent = msg; err.classList.remove('hidden'); }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        err.classList.add('hidden');
+        var first = document.getElementById('rg-first').value.trim();
+        var last = document.getElementById('rg-last').value.trim();
+        var email = document.getElementById('rg-email').value.trim();
+        var pass = document.getElementById('rg-pass').value;
+        var pass2 = document.getElementById('rg-pass2').value;
+        var terms = document.getElementById('rg-terms').checked;
+        if (!first || !last || !email) { show('Please fill in all fields.'); return; }
+        if (pass.length < 8) { show('Password must be at least 8 characters.'); return; }
+        if (pass !== pass2) { show('Passwords do not match.'); return; }
+        if (!terms) { show('Please accept the Terms and Privacy Policy.'); return; }
+        var res = window.BloomAuth.register({ firstName: first, lastName: last, email: email, password: pass });
+        if (!res.ok) { show(res.error); return; }
+        window.BloomAuth.login(email, pass);
+        window.location.href = dest;
+      });
+      var googleBtn = document.getElementById('google-btn');
+      var appleBtn = document.getElementById('apple-btn');
+      var socialMsg = document.getElementById('social-msg');
+      function notice(text) { socialMsg.textContent = text; socialMsg.classList.remove('hidden'); }
+      if (googleBtn) googleBtn.addEventListener('click', function () { notice("Google Sign-In is not configured yet. Add your Client ID in assets/js/auth-config.js to enable sign-in on Bloomora."); });
+      if (appleBtn) appleBtn.addEventListener('click', function () { notice("Apple Sign-In is not configured yet. Add your credentials in assets/js/auth-config.js to enable sign-in on Bloomora."); });
+    })();
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Secure Bloomora checkout. Pay by UPI, net banking, credit/debit card, EMI or cash on delivery.">
+  <meta name="author" content="Bloomora">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="blob w-72 h-72 bg-[#f59e0b]/25 top-[-5rem] end-[-4rem]"></div>
+      <div class="container-x relative">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span>
+          <a href="cart.html">Cart</a><span class="sep">/</span>
+          <span aria-current="page">Payment</span>
+        </nav>
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl reveal">Secure <span class="text-gradient">checkout</span></h1>
+        <p class="mt-5 text-lg text-[color:var(--ink-soft)] max-w-2xl reveal">Almost there — choose how you'd like to pay and confirm your delivery details.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x">
+
+        <!-- Progress steps -->
+        <div class="flex items-center justify-center gap-3 mb-12 reveal" aria-label="Checkout progress">
+          <div class="flex flex-col items-center" style="min-width:4.5rem;">
+            <div class="check-step done"><i class="fa-solid fa-check"></i></div>
+            <small class="mt-2 text-xs font-bold">Cart</small>
+          </div>
+          <div class="step-line done"></div>
+          <div class="flex flex-col items-center" style="min-width:4.5rem;">
+            <div class="check-step active">2</div>
+            <small class="mt-2 text-xs font-bold text-[color:var(--primary-dark)]">Payment</small>
+          </div>
+          <div class="step-line"></div>
+          <div class="flex flex-col items-center" style="min-width:4.5rem;">
+            <div class="check-step">3</div>
+            <small class="mt-2 text-xs font-bold">Confirm</small>
+          </div>
+        </div>
+
+        <!-- Login required -->
+        <div id="pay-auth-required" class="hidden">
+          <div class="card max-w-md mx-auto p-10 text-center reveal">
+            <span class="pop-icon pop-icon-warn"><i class="fa-solid fa-user-lock"></i></span>
+            <h3 class="font-display text-2xl font-semibold mt-4">Sign in to check out</h3>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-2">Your cart is saved. Sign in or create an account to continue to payment.</p>
+            <a href="login.html" id="pay-login-next" class="btn btn-primary w-full mt-6"><i class="fa-solid fa-right-to-bracket"></i> Login to Checkout</a>
+            <a href="register.html" id="pay-register-next" class="btn btn-outline w-full mt-2">Create an account</a>
+            <a href="cart.html" class="block text-xs font-bold text-[color:var(--ink-soft)] mt-4 hover:text-[color:var(--primary)]">← Back to cart</a>
+          </div>
+        </div>
+
+        <!-- Checkout form -->
+        <div id="pay-form-area" class="grid gap-8 lg:grid-cols-5">
+
+          <!-- Payment methods + address -->
+          <div class="lg:col-span-3 space-y-8">
+            <!-- Payment methods -->
+            <div class="card p-7">
+              <h3 class="font-display text-lg font-semibold flex items-center gap-2 mb-5">
+                <i class="fa-solid fa-credit-card text-[color:var(--primary)]"></i> Select payment method
+              </h3>
+
+              <!-- UPI -->
+              <div class="pay-method-card" data-method="upi" tabindex="0">
+                <input type="radio" name="payMethod" value="upi" id="pUpi" class="sr-only">
+                <span class="method-icon text-[color:var(--leaf)]"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                <span class="method-info"><strong>UPI Payment</strong><small>GPay, PhonePe, Paytm, BHIM</small></span>
+                <span class="ms-auto badge badge-leaf">Instant</span>
+              </div>
+              <div class="pay-detail" id="detail-upi">
+                <div class="upi-logos">
+                  <button type="button" class="upi-app" data-app="GPay">GPay</button>
+                  <button type="button" class="upi-app" data-app="PhonePe">PhonePe</button>
+                  <button type="button" class="upi-app" data-app="Paytm">Paytm</button>
+                  <button type="button" class="upi-app" data-app="BHIM">BHIM</button>
+                </div>
+                <div class="mt-4">
+                  <label class="form-label" for="upi-id">Or enter UPI ID</label>
+                  <input type="text" id="upi-id" class="form-input" placeholder="yourname@upi">
+                </div>
+              </div>
+
+              <!-- Net Banking -->
+              <div class="pay-method-card" data-method="netbanking" tabindex="0">
+                <input type="radio" name="payMethod" value="netbanking" id="pNetbank" class="sr-only">
+                <span class="method-icon text-[color:var(--primary)]"><i class="fa-solid fa-building-columns"></i></span>
+                <span class="method-info"><strong>Net Banking</strong><small>All major banks supported</small></span>
+              </div>
+              <div class="pay-detail" id="detail-netbanking">
+                <label class="form-label">Select your bank</label>
+                <div class="bank-option" data-bank="State Bank of India"><i class="fa-solid fa-building-columns text-[color:var(--primary)] me-2"></i> State Bank of India (SBI)</div>
+                <div class="bank-option" data-bank="HDFC Bank"><i class="fa-solid fa-building-columns text-red-500 me-2"></i> HDFC Bank</div>
+                <div class="bank-option" data-bank="ICICI Bank"><i class="fa-solid fa-building-columns text-amber-500 me-2"></i> ICICI Bank</div>
+                <div class="bank-option" data-bank="Axis Bank"><i class="fa-solid fa-building-columns text-[color:var(--leaf)] me-2"></i> Axis Bank</div>
+                <div class="bank-option" data-bank="Kotak Mahindra Bank"><i class="fa-solid fa-building-columns text-sky-500 me-2"></i> Kotak Mahindra Bank</div>
+                <div class="bank-option" data-bank="Punjab National Bank"><i class="fa-solid fa-building-columns text-[color:var(--ink-soft)] me-2"></i> Punjab National Bank</div>
+              </div>
+
+              <!-- Card -->
+              <div class="pay-method-card" data-method="card" tabindex="0">
+                <input type="radio" name="payMethod" value="card" id="pCard" class="sr-only">
+                <span class="method-icon text-red-500"><i class="fa-solid fa-credit-card"></i></span>
+                <span class="method-info"><strong>Credit / Debit Card</strong><small>Visa, Mastercard, RuPay accepted</small></span>
+                <span class="ms-auto flex items-center gap-1 text-[color:var(--ink-soft)]">
+                  <i class="fa-brands fa-cc-visa text-xl text-[#1a1f71]"></i>
+                  <i class="fa-brands fa-cc-mastercard text-xl text-[#eb001b]"></i>
+                </span>
+              </div>
+              <div class="pay-detail" id="detail-card">
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="sm:col-span-2">
+                    <label class="form-label" for="card-number">Card number</label>
+                    <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric">
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="form-label" for="card-name">Name on card</label>
+                    <input type="text" id="card-name" class="form-input" placeholder="As printed on card">
+                  </div>
+                  <div>
+                    <label class="form-label" for="card-expiry">Expiry</label>
+                    <input type="text" id="card-expiry" class="form-input" placeholder="MM/YY" maxlength="5" inputmode="numeric">
+                  </div>
+                  <div>
+                    <label class="form-label" for="card-cvv">CVV</label>
+                    <input type="password" id="card-cvv" class="form-input" placeholder="•••" maxlength="3" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+
+              <!-- COD -->
+              <div class="pay-method-card" data-method="cod" tabindex="0">
+                <input type="radio" name="payMethod" value="cod" id="pCod" class="sr-only">
+                <span class="method-icon text-[color:var(--honey)]"><i class="fa-solid fa-money-bill-wave"></i></span>
+                <span class="method-info"><strong>Cash on Delivery</strong><small>Pay when your bouquet arrives</small></span>
+                <span class="ms-auto badge badge-honey">+$5 fee</span>
+              </div>
+              <div class="pay-detail" id="detail-cod">
+                <p class="text-sm text-[color:var(--ink-soft)]"><i class="fa-solid fa-circle-info text-[color:var(--honey)] me-2"></i>A $5 convenience fee is added for Cash on Delivery orders.</p>
+              </div>
+
+              <!-- EMI -->
+              <div class="pay-method-card" data-method="emi" tabindex="0">
+                <input type="radio" name="payMethod" value="emi" id="pEmi" class="sr-only">
+                <span class="method-icon text-sky-500"><i class="fa-solid fa-calendar-days"></i></span>
+                <span class="method-info"><strong>EMI / No Cost EMI</strong><small>0% interest on orders above $99</small></span>
+              </div>
+              <div class="pay-detail" id="detail-emi">
+                <label class="form-label" for="emi-plan">Select EMI plan</label>
+                <select id="emi-plan" class="form-input">
+                  <option>3 months — $0.00 interest</option>
+                  <option>6 months — $0.00 interest</option>
+                  <option>12 months — interest applies</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Delivery address -->
+            <div class="card p-7">
+              <h3 class="font-display text-lg font-semibold flex items-center gap-2 mb-5">
+                <i class="fa-solid fa-location-dot text-[color:var(--primary)]"></i> Delivery address
+              </h3>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="field-group">
+                  <label class="form-label" for="del-name">Full name</label>
+                  <input type="text" id="del-name" class="form-input" placeholder="e.g. Iris Bennett" autocomplete="name">
+                  <p class="field-hint hidden">Letters only, at least 2 characters.</p>
+                </div>
+                <div class="field-group">
+                  <label class="form-label" for="del-phone">Phone number</label>
+                  <input type="tel" id="del-phone" class="form-input" placeholder="10-digit number" maxlength="10" inputmode="numeric" autocomplete="tel">
+                  <p class="field-hint hidden">Enter a valid 10-digit number.</p>
+                </div>
+                <div class="sm:col-span-2 field-group">
+                  <label class="form-label" for="del-address">Street address</label>
+                  <input type="text" id="del-address" class="form-input" placeholder="House no, street, apartment" autocomplete="street-address">
+                  <p class="field-hint hidden">Please enter your street address.</p>
+                </div>
+                <div class="field-group">
+                  <label class="form-label" for="del-city">City</label>
+                  <input type="text" id="del-city" class="form-input" placeholder="e.g. New York" autocomplete="address-level2">
+                  <p class="field-hint hidden">Please enter your city.</p>
+                </div>
+                <div class="field-group">
+                  <label class="form-label" for="del-state">State</label>
+                  <input type="text" id="del-state" class="form-input" placeholder="e.g. NY" autocomplete="address-level1">
+                  <p class="field-hint hidden">Please enter your state.</p>
+                </div>
+                <div class="field-group">
+                  <label class="form-label" for="del-pin">ZIP / PIN code</label>
+                  <input type="text" id="del-pin" class="form-input" placeholder="6 digits" maxlength="6" inputmode="numeric" autocomplete="postal-code">
+                  <p class="field-hint hidden">Enter a valid 5-6 digit code.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order review -->
+          <aside class="lg:col-span-2">
+            <div class="card p-7 lg:sticky lg:top-24">
+              <h3 class="font-display text-lg font-semibold flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-receipt text-[color:var(--primary)]"></i> Order review
+              </h3>
+              <div id="pay-items" class="space-y-3"></div>
+              <hr class="my-5 border-[color:var(--line)]">
+              <div class="summary-row"><span>Subtotal</span><strong id="pay-subtotal">$0.00</strong></div>
+              <div class="summary-row"><span>Delivery</span><span id="pay-delivery" class="text-[color:var(--leaf)]">Free</span></div>
+              <div class="summary-row"><span>Tax (5%)</span><span id="pay-tax">$0.00</span></div>
+              <div class="summary-row hidden" id="pay-cod-row"><span>COD fee</span><strong id="pay-cod-fee">$0.00</strong></div>
+              <div class="summary-row total"><span>Total</span><strong id="pay-total">$0.00</strong></div>
+
+              <button type="button" class="btn btn-primary w-full btn-lg mt-6" id="pay-place-order">
+                <i class="fa-solid fa-check-circle"></i> Place Order
+              </button>
+              <p class="text-center text-xs text-[color:var(--ink-soft)] mt-3"><i class="fa-solid fa-shield-halved"></i> 256-bit SSL secure checkout</p>
+              <p class="text-center text-xs text-[color:var(--ink-soft)] mt-2">Demo checkout — no real payment is processed.</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Success modal -->
+  <div class="pay-modal-overlay" id="pay-success-modal" aria-hidden="true">
+    <div class="pay-modal" role="dialog" aria-modal="true" aria-labelledby="pay-modal-title">
+      <button type="button" class="popup-close" id="pay-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <span class="pop-icon"><i class="fa-solid fa-circle-check"></i></span>
+      <h3 class="font-display text-2xl font-semibold mt-4" id="pay-modal-title">Order placed successfully!</h3>
+      <p class="text-sm text-[color:var(--ink-soft)] mt-2">Your order <strong id="pay-order-id">#BLM-0000000</strong> has been confirmed.</p>
+      <p class="text-sm text-[color:var(--ink-soft)] mt-1">Estimated delivery: 2–4 business days</p>
+      <a href="index-floral.html" class="btn btn-primary w-full mt-6">Continue Shopping</a>
+      <a href="orders.html" class="btn btn-outline w-full mt-2"><i class="fa-solid fa-box"></i> View My Orders</a>
+      <a href="index.html" class="block text-xs font-bold text-[color:var(--ink-soft)] mt-3 hover:text-[color:var(--primary)]">Back to Home</a>
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

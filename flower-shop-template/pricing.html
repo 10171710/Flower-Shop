@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Simple, transparent flower pricing at Bloomora. Subscription plans, one-time services and a detailed comparison table. No hidden fees.">
+  <meta name="keywords" content="flower subscription pricing, flower delivery cost, bouquet price, floral services pricing">
+  <meta name="author" content="Bloomora">
+  <meta property="og:title" content="Pricing &amp; Plans | Bloomora">
+  <meta property="og:description" content="Transparent florals pricing — subscribe, skip or cancel anytime.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="blob w-72 h-72 bg-[#f59e0b]/25 top-[-5rem] end-[-4rem]"></div>
+      <div class="container-x relative">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span>
+          <span aria-current="page">Pricing</span>
+        </nav>
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl reveal">Pricing that's <span class="text-gradient">blooming fair</span></h1>
+        <p class="mt-5 text-lg text-[color:var(--ink-soft)] max-w-2xl reveal">Subscribe for a constant bloom, or pay per arrangement. Every plan includes our 7-day freshness guarantee.</p>
+      </div>
+    </section>
+
+    <!-- Subscription plans with toggle -->
+    <section class="section">
+      <div class="container-x">
+        <!-- Billing toggle -->
+        <div class="flex items-center justify-center gap-4 mb-12 reveal">
+          <span class="font-bold" id="lbl-monthly">Monthly</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="pricing-switch" class="sr-only peer">
+            <span class="w-14 h-8 rounded-full bg-[color:var(--surface-2)] border border-[color:var(--line)] peer-checked:bg-[color:var(--primary)] transition-colors relative inline-block"></span>
+            <span class="absolute start-1 top-1 w-6 h-6 rounded-full bg-white shadow transition-transform peer-checked:translate-x-6 pointer-events-none"></span>
+          </label>
+          <span class="font-bold inline-flex items-center gap-2" id="lbl-yearly">Yearly <span class="badge badge-leaf">Save 20%</span></span>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          <!-- Single -->
+          <div class="card price-card p-8 reveal">
+            <h3 class="font-display text-xl font-semibold">One-Time</h3>
+            <p class="mt-2 text-sm text-[color:var(--ink-soft)]">Perfect for a single occasion.</p>
+            <p class="mt-5 font-display text-4xl font-semibold text-[color:var(--primary)]">$49</p>
+            <p class="text-xs text-[color:var(--ink-soft)]">per bouquet</p>
+            <ul class="mt-6 space-y-3 text-sm text-[color:var(--ink-soft)]">
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Hand-tied seasonal mix</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Same-day delivery option</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Free handwritten card</li>
+              <li class="flex items-center gap-3 opacity-40"><i class="fa-solid fa-xmark"></i> Priority design requests</li>
+            </ul>
+            <a href="index-floral.html" class="btn btn-outline w-full mt-8">Order a bouquet</a>
+          </div>
+
+          <!-- Seasonal -->
+          <div class="card price-card featured p-8 reveal">
+            <span class="badge badge-honey absolute -top-3 left-1/2 -translate-x-1/2 z-10">Most popular</span>
+            <h3 class="font-display text-xl font-semibold">Seasonal</h3>
+            <p class="mt-2 text-sm opacity-85">Designer's choice, every month.</p>
+            <p class="mt-5 font-display text-4xl font-semibold text-[color:var(--honey)]">
+              <span class="price-monthly">$39</span>
+              <span class="price-yearly" style="display:none">$31</span>
+            </p>
+            <p class="text-xs opacity-75">per month</p>
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--honey)]"></i> Monthly arrangement</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--honey)]"></i> Free delivery included</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--honey)]"></i> Skip or pause anytime</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--honey)]"></i> Seasonal swap privilege</li>
+            </ul>
+            <a href="register.html" class="btn btn-primary w-full mt-8">Start subscribing</a>
+          </div>
+
+          <!-- Premium -->
+          <div class="card price-card p-8 reveal">
+            <h3 class="font-display text-xl font-semibold">Premium</h3>
+            <p class="mt-2 text-sm text-[color:var(--ink-soft)]">Weekly statement florals.</p>
+            <p class="mt-5 font-display text-4xl font-semibold text-[color:var(--primary)]">
+              <span class="price-monthly">$69</span>
+              <span class="price-yearly" style="display:none">$55</span>
+            </p>
+            <p class="text-xs text-[color:var(--ink-soft)]">per month</p>
+            <ul class="mt-6 space-y-3 text-sm text-[color:var(--ink-soft)]">
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Weekly arrangement</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Larger statement designs</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Priority design requests</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i> Dedicated florist contact</li>
+            </ul>
+            <a href="register.html" class="btn btn-outline w-full mt-8">Start subscribing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- One-time services table -->
+    <section class="section bg-white dark:bg-cocoa-900/60 border-y border-[color:var(--line)]">
+      <div class="container-x">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="eyebrow justify-center reveal">One-time services</span>
+          <h2 class="section-title text-3xl sm:text-4xl mt-4">A la carte pricing</h2>
+        </div>
+        <div class="overflow-x-auto rounded-2xl shadow-soft ring-1 ring-[color:var(--line)] reveal">
+          <table class="w-full text-sm bg-[color:var(--surface)]">
+            <thead>
+              <tr class="text-start border-b border-[color:var(--line)] text-[color:var(--ink-soft)]">
+                <th class="p-4 text-start font-bold">Service</th>
+                <th class="p-4 text-start font-bold hidden sm:table-cell">Includes</th>
+                <th class="p-4 text-start font-bold">Price from</th>
+                <th class="p-4 text-end font-bold">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[color:var(--line)]">
+              <tr class="hover:bg-[color:var(--surface-2)] transition-colors">
+                <td class="p-4 font-bold">Sympathy tribute</td>
+                <td class="p-4 text-[color:var(--ink-soft)] hidden sm:table-cell">Wreath or stand, card, discreet delivery</td>
+                <td class="p-4">$95</td>
+                <td class="p-4 text-end"><a href="contact.html" class="btn btn-sm btn-outline">Enquire</a></td>
+              </tr>
+              <tr class="hover:bg-[color:var(--surface-2)] transition-colors">
+                <td class="p-4 font-bold">Interior plant design</td>
+                <td class="p-4 text-[color:var(--ink-soft)] hidden sm:table-cell">Site visit, scheme, planters, 30-day care</td>
+                <td class="p-4">$199</td>
+                <td class="p-4 text-end"><a href="contact.html" class="btn btn-sm btn-outline">Enquire</a></td>
+              </tr>
+              <tr class="hover:bg-[color:var(--surface-2)] transition-colors">
+                <td class="p-4 font-bold">Corporate rotation</td>
+                <td class="p-4 text-[color:var(--ink-soft)] hidden sm:table-cell">Weekly delivery, account manager, report</td>
+                <td class="p-4">$120/mo</td>
+                <td class="p-4 text-end"><a href="contact.html" class="btn btn-sm btn-outline">Enquire</a></td>
+              </tr>
+              <tr class="hover:bg-[color:var(--surface-2)] transition-colors">
+                <td class="p-4 font-bold">Event styling</td>
+                <td class="p-4 text-[color:var(--ink-soft)] hidden sm:table-cell">Consultation, mood board, installation</td>
+                <td class="p-4">$450</td>
+                <td class="p-4 text-end"><a href="contact.html" class="btn btn-sm btn-outline">Enquire</a></td>
+              </tr>
+              <tr class="hover:bg-[color:var(--surface-2)] transition-colors">
+                <td class="p-4 font-bold">Wedding package</td>
+                <td class="p-4 text-[color:var(--ink-soft)] hidden sm:table-cell">Bouquets, ceremony &amp; reception florals</td>
+                <td class="p-4">$890</td>
+                <td class="p-4 text-end"><a href="service-details.html?service=wedding" class="btn btn-sm btn-primary">Details</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="section">
+      <div class="container-x">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="eyebrow justify-center reveal">Compare plans</span>
+          <h2 class="section-title text-3xl sm:text-4xl mt-4">What's included</h2>
+        </div>
+        <div class="overflow-x-auto rounded-2xl shadow-soft ring-1 ring-[color:var(--line)] reveal">
+          <table class="w-full text-sm bg-[color:var(--surface)] min-w-[40rem]">
+            <thead>
+              <tr class="border-b border-[color:var(--line)]">
+                <th class="p-4 text-start font-bold">Feature</th>
+                <th class="p-4 text-center font-bold">One-Time</th>
+                <th class="p-4 text-center font-bold text-[color:var(--primary)]">Seasonal</th>
+                <th class="p-4 text-center font-bold">Premium</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[color:var(--line)] text-[color:var(--ink-soft)]">
+              <tr><td class="p-4">Arrangement per month</td><td class="p-4 text-center">1</td><td class="p-4 text-center">1</td><td class="p-4 text-center">4</td></tr>
+              <tr><td class="p-4">Free delivery</td><td class="p-4 text-center"><i class="fa-solid fa-xmark text-[color:var(--primary)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td></tr>
+              <tr><td class="p-4">Designer's choice blooms</td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td></tr>
+              <tr><td class="p-4">Skip or pause anytime</td><td class="p-4 text-center">—</td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td></tr>
+              <tr><td class="p-4">Priority design requests</td><td class="p-4 text-center"><i class="fa-solid fa-xmark text-[color:var(--primary)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-xmark text-[color:var(--primary)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td></tr>
+              <tr><td class="p-4">Dedicated florist contact</td><td class="p-4 text-center"><i class="fa-solid fa-xmark text-[color:var(--primary)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-xmark text-[color:var(--primary)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td></tr>
+              <tr><td class="p-4">Vase &amp; care kit</td><td class="p-4 text-center"><i class="fa-solid fa-xmark text-[color:var(--primary)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td><td class="p-4 text-center"><i class="fa-solid fa-check text-[color:var(--leaf)]"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center mt-10 reveal">
+          <a href="contact.html" class="btn btn-primary btn-lg">Talk to us about a plan <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guarantee strip -->
+    <section class="section bg-white dark:bg-cocoa-900/60 border-y border-[color:var(--line)]">
+      <div class="container-x grid gap-6 md:grid-cols-3">
+        <div class="card p-7 text-center reveal">
+          <i class="fa-solid fa-shield-heart text-3xl text-[color:var(--primary)]"></i>
+          <h3 class="font-display text-lg font-semibold mt-4">7-day bloom guarantee</h3>
+          <p class="text-sm text-[color:var(--ink-soft)] mt-2">Not blooming? We'll replace it free.</p>
+        </div>
+        <div class="card p-7 text-center reveal">
+          <i class="fa-solid fa-rotate-left text-3xl text-[color:var(--leaf)]"></i>
+          <h3 class="font-display text-lg font-semibold mt-4">Cancel anytime</h3>
+          <p class="text-sm text-[color:var(--ink-soft)] mt-2">Subscriptions pause, skip or cancel in two clicks.</p>
+        </div>
+        <div class="card p-7 text-center reveal">
+          <i class="fa-solid fa-lock text-3xl text-[color:var(--honey)]"></i>
+          <h3 class="font-display text-lg font-semibold mt-4">Secure payments</h3>
+          <p class="text-sm text-[color:var(--ink-soft)] mt-2">Cards, PayPal and Apple Pay. Fully encrypted.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
