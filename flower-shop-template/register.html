@@ -27,17 +27,11 @@
   <header id="site-header">
     <div class="nav-root">
       <div class="nav-shell">
-        <div class="container-x flex items-center gap-3 py-3.5">
-          <a class="flex items-center gap-2.5" href="index.html" aria-label="Bloomora home">
-            <img src="assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
-            <span class="font-display font-semibold text-2xl tracking-tight">Bloomora</span>
-          </a>
-          <div class="ms-auto flex items-center gap-3">
-            <button type="button" class="icon-btn" id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle color theme">
-              <i class="fa-solid fa-moon"></i></button>
-            <button type="button" class="icon-btn" id="rtl-toggle" title="Toggle RTL / LTR layout" aria-label="Toggle text direction" aria-pressed="false">
-              <i class="fa-solid fa-arrow-right-arrow-left"></i></button>
-          </div>
+        <div class="container-x flex items-center justify-end gap-3 py-3.5">
+          <button type="button" class="icon-btn" id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle color theme">
+            <i class="fa-solid fa-moon"></i></button>
+          <button type="button" class="icon-btn" id="rtl-toggle" title="Toggle RTL / LTR layout" aria-label="Toggle text direction" aria-pressed="false">
+            <i class="fa-solid fa-arrow-right-arrow-left"></i></button>
         </div>
       </div>
     </div>
@@ -49,6 +43,10 @@
         <div class="max-w-lg mx-auto">
           <!-- Form card -->
           <div class="card p-8 sm:p-10 flex flex-col justify-center text-center reveal">
+            <a href="index.html" class="flex items-center justify-center mb-5 -translate-x-2" aria-label="Bloomora home">
+              <img src="assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+              <span class="font-display font-semibold text-2xl tracking-tight">Bloomora</span>
+            </a>
             <span class="eyebrow justify-center">Join the studio</span>
             <h1 class="section-title text-3xl sm:text-4xl mt-3">Create your account</h1>
             <p class="mt-3 text-sm text-[color:var(--ink-soft)]">Already have an account? <a href="login.html" id="rg-login-link" class="font-bold text-[color:var(--primary)] hover:underline">Sign in</a></p>

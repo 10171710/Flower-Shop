@@ -70,11 +70,24 @@
     try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
   }
 
+  function resetPassword(email, newPassword) {
+    var user = findUser(email);
+    if (!user) return { ok: false, error: 'No account found with that email address.' };
+    if (!newPassword || newPassword.length < 8) return { ok: false, error: 'Your new password must be at least 8 characters.' };
+    var users = allUsers();
+    for (var i = 0; i < users.length; i++) {
+      if (normalize(users[i].email) === normalize(email)) { users[i].password = newPassword; break; }
+    }
+    write(USERS_KEY, users);
+    return { ok: true };
+  }
+
   window.BloomAuth = {
     register: register,
     login: login,
     logout: logout,
     current: current,
-    findUser: findUser
+    findUser: findUser,
+    resetPassword: resetPassword
   };
 })();

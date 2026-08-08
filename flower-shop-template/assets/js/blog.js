@@ -15,6 +15,20 @@
   var empty = document.getElementById('blog-empty');
   var chips = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
 
+  var more = document.getElementById('blog-more');
+  if (more && cards.length > 3) {
+    more.innerHTML = cards.slice(3).map(function (card) {
+      var link = card.querySelector('h2 a');
+      var img = card.querySelector('img');
+      var meta = card.querySelector('.flex.gap-3.text-xs');
+      var date = meta ? meta.querySelectorAll('span')[1] : null;
+      return '<li class="flex gap-3">' +
+        '<img src="' + (img ? img.getAttribute('src') : '') + '" alt="" class="w-16 h-16 shrink-0 rounded-xl object-cover">' +
+        '<div><a href="' + (link ? link.getAttribute('href') : '#') + '" class="font-bold text-sm leading-snug hover:text-[color:var(--primary)] transition-colors">' + (link ? link.textContent : '') + '</a>' +
+        '<p class="text-xs text-[color:var(--ink-soft)] mt-1">' + (date ? date.textContent : '') + '</p></div></li>';
+    }).join('');
+  }
+
   var activeCategory = 'all';
 
   function applyFilters() {

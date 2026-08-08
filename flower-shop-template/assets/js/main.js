@@ -238,7 +238,7 @@
 
   /* ---------- Reveal on scroll ---------- */
   function setupReveal() {
-    var items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    var items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .sweep, .sweep-center');
     if (!items.length) return;
     if (!('IntersectionObserver' in window)) {
       items.forEach(function (el) { el.classList.add('in'); });
@@ -252,7 +252,14 @@
         }
       });
     }, { threshold: 0.12 });
-    items.forEach(function (el) { io.observe(el); });
+    items.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.classList.add('in');
+      } else {
+        io.observe(el);
+      }
+    });
   }
 
   /* ---------- Counters ---------- */
@@ -336,8 +343,8 @@
       var yearly = sw.checked;
       document.querySelectorAll('.price-monthly').forEach(function (el) { el.style.display = yearly ? 'none' : 'block'; });
       document.querySelectorAll('.price-yearly').forEach(function (el) { el.style.display = yearly ? 'block' : 'none'; });
-      if (lblM) lblM.classList.toggle('text-[color:var(--primary)]', !yearly);
-      if (lblY) lblY.classList.toggle('text-[color:var(--primary)]', yearly);
+      if (lblM) lblM.classList.toggle('active', !yearly);
+      if (lblY) lblY.classList.toggle('active', yearly);
     }
     update();
     sw.addEventListener('change', update);
@@ -460,6 +467,27 @@
     });
   }
 
+  /* ---------- Contact form ---------- */
+  function setupContactForm() {
+    var nameInput = document.getElementById('ct-name');
+    if (!nameInput) return;
+    var form = nameInput.closest('form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = nameInput.value.trim();
+      var email = document.getElementById('ct-email').value.trim();
+      var msg = document.getElementById('ct-message').value.trim();
+      if (!name || !msg || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+
+      form.reset();
+      if (window.BloomShop && window.BloomShop.showPopup) {
+        window.BloomShop.showPopup('Message sent', 'Thanks, ' + name.split(' ')[0] + '! We\u2019ll reply within one business day.');
+      }
+    });
+  }
+
   /* ---------- Init ---------- */
   function init() {
     syncThemeIcon();
@@ -483,6 +511,7 @@
     setupParallax();
     setupMagnetic();
     setupAppLinks();
+    setupContactForm();
 
     document.body.classList.add('loaded');
 

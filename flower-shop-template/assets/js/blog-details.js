@@ -9,6 +9,8 @@
 (function () {
   'use strict';
 
+  var current = null;
+
   var ARTICLES = {
 
     "indoor-blooms": {
@@ -407,10 +409,10 @@
     }).join('');
   }
 
-  function renderRecent() {
-    return ORDER.slice(0, 3).map(function (slug) {
+  function renderRecent(exclude) {
+    return ORDER.filter(function (s) { return s !== exclude; }).slice(0, 3).map(function (slug) {
       var a = ARTICLES[slug];
-      return '<li class="flex gap-3"><img src="' + a.img + '" alt="" class="w-16 h-16 rounded-xl object-cover">' +
+      return '<li class="flex gap-3"><img src="' + a.img + '" alt="" class="w-16 h-16 shrink-0 rounded-xl object-cover">' +
         '<div><a href="' + articleUrl(slug) + '" class="font-bold text-sm leading-snug hover:text-[color:var(--primary)] transition-colors">' + a.title.toLowerCase() + '</a>' +
         '<p class="text-xs text-[color:var(--ink-soft)] mt-1">' + a.date + '</p></div></li>';
     }).join('');
@@ -478,10 +480,67 @@
     }
 
     var recent = document.getElementById('bd-recent');
-    if (recent) recent.innerHTML = renderRecent();
+    if (recent) recent.innerHTML = renderRecent(key);
 
     var catBadge = document.getElementById('bd-badge-cls');
     if (catBadge) catBadge.className = 'badge ' + a.categoryCls;
+
+    current = a;
+  }
+
+  /* ---------- Comment form ---------- */
+  function initialsOf(name) {
+    var parts = String(name).trim().split(/\s+/);
+    var out = '';
+    for (var i = 0; i < Math.min(2, parts.length); i++) out += (parts[i][0] || '').toUpperCase();
+    return out || 'GU';
+  }
+
+  function nowMeta() {
+    var d = new Date();
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var ampm = h < 12 ? ' AM' : ' PM';
+    h = h % 12 || 12;
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() +
+      ' \u00b7 ' + h + ':' + (m < 10 ? '0' : '') + m + ampm;
+  }
+
+  function setupCommentForm() {
+    var nameInput = document.getElementById('c-name');
+    if (!nameInput) return;
+    var form = nameInput.closest('form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = nameInput.value.trim();
+      var email = document.getElementById('c-email').value.trim();
+      var msg = document.getElementById('c-message').value.trim();
+      if (!name || !msg || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+      if (!current) return;
+
+      current.comments.unshift({
+        initials: initialsOf(name),
+        cls: 'from-[#F2C0D3] to-[#E8A5BE]',
+        name: name,
+        meta: nowMeta(),
+        text: msg
+      });
+
+      setHtml('bd-comments', renderComments(current.comments));
+      var count = document.getElementById('bd-comment-count');
+      if (count) count.textContent = String(current.comments.length);
+
+      nameInput.value = '';
+      document.getElementById('c-email').value = '';
+      document.getElementById('c-message').value = '';
+
+      if (window.BloomShop && window.BloomShop.showPopup) {
+        window.BloomShop.showPopup('Comment posted', 'Thanks, ' + name.split(' ')[0] + '! Your comment is now live.');
+      }
+    });
   }
 
   function init() {
@@ -489,6 +548,7 @@
     var key = param('slug');
     if (!ARTICLES.hasOwnProperty(key)) key = 'indoor-blooms';
     render(ARTICLES[key], key);
+    setupCommentForm();
     window.bloomPostKey = key;
     window.bloomPostOrder = ORDER;
   }

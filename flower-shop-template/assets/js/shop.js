@@ -376,6 +376,8 @@
 
   window.BloomShop = {
     productImage: productImage,
-    normalizeImg: normalizeImg
+    normalizeImg: normalizeImg,
+    toast: toast,
+    showPopup: showPopup
   };
 })();

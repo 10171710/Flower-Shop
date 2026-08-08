@@ -14,7 +14,7 @@
 
     /* brand column */
     '<div>' +
-    '<a class="flex items-center gap-2.5 mb-4" href="index.html">' +
+    '<a class="flex items-center mb-4" href="index.html">' +
     '<img src="assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">' +
     '<span class="font-display font-semibold text-2xl tracking-tight">Bloomora</span></a>' +
     '<p class="text-sm text-[color:var(--ink-soft)] mb-5 max-w-xs">' +

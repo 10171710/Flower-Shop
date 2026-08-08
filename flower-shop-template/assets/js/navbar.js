@@ -46,7 +46,7 @@
     linkTo('contact.html', 'Contact', 'fa-solid fa-envelope')
   ].join('');
 
-  var logo = '<a class="flex items-center gap-2.5" href="index.html" aria-label="Bloomora home">' +
+  var logo = '<a class="flex items-center" href="index.html" aria-label="Bloomora home">' +
     '<img src="assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">' +
     '<span class="font-display font-semibold text-2xl tracking-tight">Bloomora</span>' +
     '</a>';

@@ -149,17 +149,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 @media (min-width: 640px)  { .container-x { padding-inline: 1.5rem; } }
 @media (min-width: 1024px) { .container-x { padding-inline: 2rem; } }
-@media (min-width: 1536px) { .container-x { max-width: 88rem; } }
-
-/* Extra-small phones (iPhone SE / small Android, ~320-380px):
-   tighten side padding and hero type so nothing wraps awkwardly or overflows. */
-@media (max-width: 380px) {
-  .container-x { padding-inline: 1rem; }
-  .hero-title { font-size: clamp(1.9rem, 9vw, 2.5rem) !important; line-height: 1.12; }
-  .page-hero h1 { font-size: clamp(1.75rem, 8.5vw, 2.25rem) !important; }
-  .btn { padding: 0.75rem 1.25rem; font-size: 0.88rem; }
-  .section { padding-block: 3rem; }
-}
 
 .section { padding-block: 4.5rem; }
 @media (min-width: 768px) { .section { padding-block: 6rem; } }
@@ -324,6 +313,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .form-check input { width: 1.1rem; height: 1.1rem; accent-color: var(--primary-dark); }
 
 /* ---------- Navbar ---------- */
+#site-header { display: contents; }
 .nav-root { position: sticky; top: 0; z-index: 60; }
 .nav-shell {
   position: relative;
@@ -580,6 +570,44 @@ ul { margin: 0; padding: 0; list-style: none; }
   .nav-shell nav .nav-group { gap: 0.4rem; }
   .nav-shell nav > div:last-child { gap: 0.45rem; }
 }
+
+/* Ultra-narrow screens (<=350px): shrink icons and logo so nothing collides */
+@media (max-width: 350px) {
+  .container-x {
+    padding-inline: 0.7rem;
+  }
+  .nav-shell nav {
+    gap: 0.5rem;
+  }
+  .nav-shell nav > .flex,
+  .nav-shell nav > div:last-child {
+    gap: 0.4rem;
+  }
+  .nav-shell nav .icon-btn {
+    width: 1.85rem;
+    height: 1.85rem;
+    font-size: 0.72rem;
+  }
+  .nav-shell nav a[aria-label="Bloomora home"] img {
+    width: 2rem;
+    height: 2rem;
+  }
+  .nav-shell nav a[aria-label="Bloomora home"] span {
+    font-size: 1.15rem;
+  }
+  .nav-shell nav .avatar-badge {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.62rem;
+  }
+  .back-to-top {
+    inset-inline-end: 0.85rem;
+    bottom: 0.85rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 0.85rem;
+  }
+}
 @media (min-width: 1024px) {
   .nav-toggle { display: none; }
   .mobile-menu { display: none; }
@@ -731,6 +759,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
 .accordion-body-inner { padding: 0 1.25rem 1.15rem; color: var(--ink-soft); font-size: 0.95rem; }
 
+/* FAQ subtitle link needs a readable accent in light mode (--primary is a pale tint) */
+#sd-faq-sub a { color: var(--primary-dark); text-decoration-color: color-mix(in srgb, var(--primary-dark) 45%, transparent); }
+.dark #sd-faq-sub a { color: #F2C0D3; text-decoration-color: color-mix(in srgb, #F2C0D3 55%, transparent); }
+
 /* ---------- Tabs ---------- */
 .tab-btn { padding: 0.65rem 1.25rem; border-radius: 999px; font-weight: 700; font-size: 0.9rem; color: var(--ink-soft); cursor: pointer; transition: all 0.2s ease; border: 1.5px solid transparent; }
 .tab-btn.active { background: var(--surface); border-color: var(--line); color: var(--primary-dark); box-shadow: var(--shadow-soft); }
@@ -819,8 +851,19 @@ ul { margin: 0; padding: 0; list-style: none; }
   box-shadow: var(--shadow-lift);
 }
 .dark .price-card.featured { background: linear-gradient(160deg, #fde68a, #fcd34d); color: #2b2722; }
+.dark .price-card.featured .badge-honey,
+.dark .gradient-card .badge-honey {
+  background: #2b2722;
+  color: #fcd34d;
+}
 .price-card.featured .btn-primary { background: var(--honey); color: #2b2722; box-shadow: none; }
 .price-card.featured .btn-primary:hover { background: #fbbf24; }
+
+/* ---------- Pricing billing toggle ---------- */
+#pricing-switch:checked + span { background: var(--primary-dark); }
+.dark #pricing-switch:checked + span { background: var(--primary); }
+#lbl-monthly.active, #lbl-yearly.active { color: var(--primary-dark); }
+.dark #lbl-monthly.active, .dark #lbl-yearly.active { color: var(--primary); }
 
 .social-btn {
   width: 2.5rem;
@@ -854,8 +897,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .services-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
 .services-list { display: flex; flex-direction: column; gap: 1.25rem; }
 .services-list .service-card { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; }
+.services-list .service-card > div:last-child { grid-column: 1 / -1; justify-content: flex-start; }
 @media (min-width: 768px) {
-  .services-list .service-card { grid-template-columns: 11rem 1fr auto; }
+  .services-list .service-card { grid-template-columns: auto 1fr auto; }
+  .services-list .service-card > div:last-child { grid-column: auto; justify-content: flex-end; }
 }
 
 /* ---------- Newsletters / footer ---------- */
@@ -1069,10 +1114,11 @@ body.loaded .page-anim { opacity: 1; transform: none; }
 .rotate-badge-text {
   font-size: 9.5px;
   font-weight: 700;
-  letter-spacing: 0.18em;
-  fill: var(--primary);
+  letter-spacing: 0.12em;
+  fill: var(--primary-dark);
   text-transform: uppercase;
 }
+.dark .rotate-badge-text { fill: var(--primary); }
 .rotate-badge-icon {
   width: 2.6rem;
   height: 2.6rem;
@@ -1207,8 +1253,21 @@ body.loaded .page-anim { opacity: 1; transform: none; }
 .group:hover .quick-add,
 .group:focus-within .quick-add { transform: none; opacity: 1; }
 .wishlist { z-index: 2; }
-.wishlist.active { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
-.wishlist.active:hover { color: #fff; }
+.wishlist.active,
+.dark .icon-btn.wishlist.active { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
+.wishlist.active:hover,
+.dark .icon-btn.wishlist.active:hover { color: #fff; }
+
+/* Dark-mode wishlist chip uses a solid surface so the heart reads over photos */
+.dark .icon-btn.wishlist { background: var(--surface); border-color: var(--line); color: var(--ink); }
+
+/* Dark-mode product badges stay solid so they read clearly over photos */
+.dark .media-badge.badge-primary { background: #4E2A3B; color: #F2C0D3; }
+.dark .media-badge.badge-honey { background: #3a2a08; color: #fcd34d; }
+.dark .media-badge.badge-leaf { background: #16301f; color: #a7dfb8; }
+.dark .img-frame + .badge.badge-primary { background: #4E2A3B; color: #F2C0D3; }
+.dark .img-frame + .badge.badge-honey { background: #3a2a08; color: #fcd34d; }
+.dark .img-frame + .badge.badge-leaf { background: #16301f; color: #a7dfb8; }
 
 /* ---------- Instagram overlay ---------- */
 .ig-item { position: relative; }
@@ -1236,8 +1295,11 @@ body.loaded .page-anim { opacity: 1; transform: none; }
   font-family: var(--font-display);
   font-size: 4.5rem;
   line-height: 1;
-  color: color-mix(in srgb, var(--primary) 16%, transparent);
+  color: color-mix(in srgb, var(--primary-dark) 26%, transparent);
   pointer-events: none;
+}
+.dark .testi-card::before {
+  color: color-mix(in srgb, var(--primary) 30%, transparent);
 }
 
 /* ---------- Gradient border card (featured plan) ---------- */
