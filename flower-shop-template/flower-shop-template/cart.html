@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | Bloomora – Flower Shop &amp; Floral Arrangements</title>
+  <meta name="description" content="Review your Bloomora cart. Adjust quantities, apply a coupon and proceed to a secure checkout.">
+  <meta name="author" content="Bloomora">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="blob w-72 h-72 bg-[#f59e0b]/25 top-[-5rem] end-[-4rem]"></div>
+      <div class="container-x relative">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span>
+          <span aria-current="page">Cart</span>
+        </nav>
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl reveal">Your <span class="text-gradient">cart</span></h1>
+        <p class="mt-5 text-lg text-[color:var(--ink-soft)] max-w-2xl reveal" id="cart-subtitle">Loading your cart…</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x">
+
+        <!-- Empty cart -->
+        <div id="cart-empty" class="hidden">
+          <div class="card max-w-md mx-auto p-10 text-center reveal">
+            <i class="fa-solid fa-bag-shopping text-4xl text-[color:var(--ink-soft)] opacity-60"></i>
+            <h3 class="font-display text-2xl font-semibold mt-4">Your cart is empty</h3>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-2">Looks like you haven't added any blooms yet.</p>
+            <a href="index-floral.html" class="btn btn-primary btn-lg mt-6">Shop bouquets <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div id="cart-full" class="grid gap-8 lg:grid-cols-3">
+          <!-- Cart items -->
+          <div class="lg:col-span-2">
+            <div class="card p-2 sm:p-4">
+              <div id="cart-page-items" class="divide-y divide-[color:var(--line)]"></div>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-5">
+              <a href="index-floral.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-left"></i> Continue shopping</a>
+              <button type="button" class="btn btn-ghost btn-sm" id="cart-clear-btn"><i class="fa-solid fa-trash-can"></i> Clear cart</button>
+            </div>
+          </div>
+
+          <!-- Order summary -->
+          <aside>
+            <div class="card p-7 lg:sticky lg:top-24">
+              <h3 class="font-display text-lg font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-receipt text-[color:var(--primary)]"></i> Order summary
+              </h3>
+              <div class="summary-row mt-5"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+              <div class="summary-row"><span>Delivery</span><span id="cart-delivery" class="text-[color:var(--leaf)]">Free</span></div>
+              <div class="summary-row"><span>Tax (5%)</span><span id="cart-tax">$0.00</span></div>
+              <div class="summary-row hidden" id="cart-discount-row"><span>Discount</span><strong class="text-[color:var(--leaf)]" id="cart-discount">$0.00</strong></div>
+              <div class="summary-row total"><span>Total</span><strong id="cart-total">$0.00</strong></div>
+
+              <p class="hidden items-center gap-2 text-xs font-bold text-[color:var(--leaf)] mt-3" id="cart-free-delivery">
+                <i class="fa-solid fa-gift"></i> Free delivery unlocked ($60+ orders)
+              </p>
+
+              <div class="flex gap-2 mt-6">
+                <input type="text" id="coupon-input" dir="ltr" class="form-input text-left" placeholder="Coupon code" aria-label="Coupon code">
+                <button type="button" class="btn btn-outline btn-sm whitespace-nowrap" id="coupon-apply">Apply</button>
+              </div>
+              <p class="text-xs text-[color:var(--ink-soft)] mt-2">Try <strong class="accent-text">BLOOM10</strong> or <strong class="accent-text">FRESH20</strong></p>
+              <p id="coupon-msg" class="hidden"></p>
+
+              <button type="button" class="btn btn-primary w-full btn-lg mt-6" id="cart-checkout-btn">
+                <i class="fa-solid fa-lock"></i> Proceed to Checkout
+              </button>
+              <p class="text-center text-xs text-[color:var(--ink-soft)] mt-3"><i class="fa-solid fa-shield-halved"></i> 100% secure checkout</p>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -31,19 +31,26 @@
 
   var activeCategory = 'all';
 
+  function normalizeForMatch(str) {
+    return String(str).toLowerCase().split(/\s+/).map(function (w) {
+      return w.length > 1 && w.slice(-1) === 's' ? w.slice(0, -1) : w;
+    }).join(' ');
+  }
+
   function applyFilters() {
-    var query = search ? search.value.trim().toLowerCase() : '';
+    var query = search ? normalizeForMatch(search.value) : '';
     var visible = 0;
 
     cards.forEach(function (card) {
-      var title = (card.getAttribute('data-title') || '').toLowerCase();
+      var title = normalizeForMatch(card.getAttribute('data-title') || '');
       var category = card.getAttribute('data-category') || 'other';
-      var tags = (card.getAttribute('data-tags') || '').toLowerCase();
+      var tags = normalizeForMatch(card.getAttribute('data-tags') || '');
 
       var matchesCategory = activeCategory === 'all' || category === activeCategory;
       var matchesSearch = !query ||
         title.indexOf(query) !== -1 ||
-        tags.indexOf(query) !== -1;
+        tags.indexOf(query) !== -1 ||
+        normalizeForMatch(category).indexOf(query) !== -1;
 
       if (matchesCategory && matchesSearch) {
         card.style.display = '';
@@ -57,6 +64,11 @@
   }
 
   if (search) search.addEventListener('input', applyFilters);
+
+  var searchBtn = document.getElementById('blog-search-btn');
+  var searchIcon = document.getElementById('blog-search-icon');
+  if (searchBtn) searchBtn.addEventListener('click', function () { if (search) { search.focus(); applyFilters(); } });
+  if (searchIcon) searchIcon.addEventListener('click', function () { if (search) { search.focus(); applyFilters(); } });
 
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {

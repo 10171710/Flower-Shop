@@ -74,8 +74,8 @@
     '<div class="border-t border-[color:var(--line)] mt-6 pt-6 pb-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[color:var(--ink-soft)]">' +
     '<p>© 2026 Bloomora. All rights reserved.</p>' +
     '<div class="flex items-center gap-5">' +
-    '<a class="footer-link" href="#">Privacy Policy</a>' +
-    '<a class="footer-link" href="#">Terms of Service</a>' +
+    '<a class="footer-link" href="privacy.html">Privacy Policy</a>' +
+    '<a class="footer-link" href="terms.html">Terms of Service</a>' +
     '<div class="flex items-center gap-1.5 text-xs">' +
     '<i class="fa-brands fa-cc-visa text-xl"></i>' +
     '<i class="fa-brands fa-cc-mastercard text-xl"></i>' +

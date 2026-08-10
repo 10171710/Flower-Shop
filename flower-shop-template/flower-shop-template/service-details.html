@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details | Bloomora</title>
+  <meta name="description" content="Explore Bloomora's floral services — wedding florals, event styling, corporate arrangements, sympathy tributes, subscriptions and plant design.">
+  <meta name="keywords" content="floral services, wedding florist, event florist, corporate flowers, flower subscription, plant design">
+  <meta name="author" content="Bloomora">
+  <meta property="og:title" content="Service Details | Bloomora">
+  <meta property="og:description" content="Bespoke floral services with transparent packages and a dedicated designer.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg">
+  <script src="assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="blob w-72 h-72 bg-[#C06389]/30 top-[-5rem] start-[-4rem]"></div>
+      <div class="container-x relative">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span>
+          <a href="services.html">Services</a><span class="sep">/</span>
+          <span aria-current="page" id="sd-breadcrumb">Wedding Florals</span>
+        </nav>
+        <h1 id="sd-title" class="hero-title text-4xl sm:text-5xl lg:text-6xl reveal">Wedding <span class="text-gradient">Florals</span></h1>
+        <p id="sd-intro" class="mt-5 text-lg text-[color:var(--ink-soft)] max-w-2xl reveal">Bespoke bridal and ceremony florals designed around your story — from intimate elopements to full-scale receptions.</p>
+        <div id="sd-badges" class="mt-6 flex flex-wrap gap-3 reveal"></div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section">
+      <div class="container-x grid lg:grid-cols-2 gap-12 items-center">
+        <div class="rounded-4xl overflow-hidden shadow-lift ring-1 ring-[color:var(--line)] reveal">
+          <img id="sd-about-img" src="assets/img/service-details-hero.jpg" alt="Floral arrangement" class="w-full">
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">About this service</span>
+          <h2 id="sd-about-title" class="section-title text-3xl sm:text-4xl mt-4">Your dream day, in full bloom</h2>
+          <p id="sd-about-text" class="mt-4 text-[color:var(--ink-soft)]">From the first mood board to the final petal, a dedicated senior designer walks with you. We source seasonally, tastefully, and within your budget.</p>
+          <ul id="sd-about-list" class="mt-7 space-y-4"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="section bg-white dark:bg-cocoa-900/60 border-y border-[color:var(--line)]">
+      <div class="container-x">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="eyebrow justify-center reveal">Packages</span>
+          <h2 id="sd-pack-title" class="section-title text-3xl sm:text-4xl mt-4">Wedding florals, priced simply</h2>
+        </div>
+        <div id="sd-packages" class="grid gap-6 lg:grid-cols-3"></div>
+        <p id="sd-pack-note" class="text-center text-sm text-[color:var(--ink-soft)] mt-8 reveal">All packages are customisable. Final quotes depend on season, scale and venue access.</p>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section">
+      <div class="container-x grid lg:grid-cols-2 gap-14">
+        <div class="reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 id="sd-faq-title" class="section-title text-3xl sm:text-4xl mt-4">Wedding flower questions</h2>
+          <p id="sd-faq-sub" class="mt-4 text-[color:var(--ink-soft)]">Still curious? <a href="contact.html" class="font-bold text-[color:var(--primary)] underline underline-offset-4">Ask us anything</a>.</p>
+        </div>
+        <div id="sd-faqs" class="accordion"></div>
+      </div>
+    </section>
+
+    <!-- Related services -->
+    <section class="section bg-white dark:bg-cocoa-900/60 border-y border-[color:var(--line)]">
+      <div class="container-x">
+        <h2 class="section-title text-3xl mb-10 reveal">You may also like</h2>
+        <div id="sd-related" class="grid gap-6 md:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container-x">
+        <div id="sd-cta" class="rounded-4xl bg-gradient-to-br from-[#5E2639] to-[#A24B6E] text-white p-10 sm:p-14 text-center relative overflow-hidden reveal">
+          <div class="bg-dots absolute inset-0 opacity-15"></div>
+          <div class="relative">
+            <h2 id="sd-cta-title" class="section-title text-3xl sm:text-4xl text-white">Let's design your wedding flowers</h2>
+            <p id="sd-cta-text" class="mt-3 text-white/85 max-w-xl mx-auto">Book a free 30-minute consultation with a senior designer.</p>
+            <div class="mt-7 flex flex-wrap justify-center gap-3">
+              <a href="contact.html" class="btn btn-light btn-lg">Book a consultation <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/service-details.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

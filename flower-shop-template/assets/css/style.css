@@ -237,7 +237,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
 }
-.card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+.card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; }
 .card-hover:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lift);
@@ -877,6 +877,45 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: all 0.2s ease;
 }
 .social-btn:hover { background: var(--primary-dark); color: #fff; transform: translateY(-3px); }
+
+/* Coming-soon "Back to the website" link – visible in both themes */
+.cs-back-link { color: var(--primary-dark); }
+.dark .cs-back-link { color: var(--primary); }
+
+/* Accent text – deep mauve on light, light pink on dark */
+.accent-text { color: var(--primary-dark); }
+.dark .accent-text { color: var(--primary); }
+
+/* In light theme --primary is a pale pink that disappears on light surfaces.
+   Make hover-to-primary text turn the deeper mauve instead so hover effects
+   stay clearly visible in light mode (dark theme keeps the light pink). */
+html:not(.dark) .hover\:text-\[color\:var\(--primary\)\]:hover { color: var(--primary-dark); }
+
+/* Light-theme: deepen the pale-pink hover accents so they are clearly visible */
+html:not(.dark) .card-hover:hover { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
+html:not(.dark) .stats-card:hover { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
+html:not(.dark) .spotlight::before {
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--primary-dark) 18%, transparent),
+    transparent 65%
+  );
+}
+html:not(.dark) .btn-primary:hover,
+html:not(.dark) .mobile-menu .m-cta:hover { background: linear-gradient(120deg, #D985A5, var(--primary-dark)); }
+html:not(.dark) .btn-light:hover { border-color: color-mix(in srgb, var(--primary-dark) 45%, transparent); }
+
+/* Clearly visible background hover effects on cards, in both themes */
+.card:hover { background-color: color-mix(in srgb, var(--primary) 25%, var(--surface)); }
+.card:not(.card-hover) { transition: background-color 0.3s ease; }
+
+/* Light-theme: clearly visible background hover effects */
+html:not(.dark) .chip:hover { background-color: color-mix(in srgb, var(--primary) 50%, var(--surface)); }
+html:not(.dark) .icon-btn:hover { background-color: color-mix(in srgb, var(--primary) 45%, var(--surface)); }
+html:not(.dark) .btn-outline:hover { background-color: color-mix(in srgb, var(--primary) 35%, var(--surface)); }
+html:not(.dark) .accordion-btn:hover { background-color: color-mix(in srgb, var(--primary) 35%, var(--surface)); }
+html:not(.dark) .dropdown-menu a:hover { background-color: color-mix(in srgb, var(--primary) 65%, var(--surface)); }
+html:not(.dark) .mobile-menu a:hover { background-color: color-mix(in srgb, var(--primary) 65%, var(--surface)); }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

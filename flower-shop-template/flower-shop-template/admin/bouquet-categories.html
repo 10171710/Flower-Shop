@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouquet Categories | Bloomora Admin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <div class="admin-body" id="admin-body">
+
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="px-5 py-5 flex items-center border-b border-white/10">
+        <img src="../assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <div>
+          <p class="font-display font-semibold text-2xl tracking-tight">Bloomora</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mt-1">Admin Panel</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-3 py-4" aria-label="Admin navigation">
+        <p class="side-section-label">Main</p>
+        <a href="index.html" class="side-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="bouquet-categories.html" class="side-link active" aria-current="page"><i class="fa-solid fa-shapes"></i> Bouquet Categories</a>
+        <a href="seasonal-availability.html" class="side-link"><i class="fa-solid fa-calendar-days"></i> Seasonal Availability</a>
+        <a href="same-day-delivery.html" class="side-link"><i class="fa-solid fa-truck-fast"></i> Same-Day Delivery</a>
+        <a href="custom-order.html" class="side-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Orders <span class="side-badge">5</span></a>
+        <p class="side-section-label">Manage</p>
+        <a href="orders.html" class="side-link"><i class="fa-solid fa-basket-shopping"></i> Orders <span class="side-badge">12</span></a>
+        <a href="users.html" class="side-link"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="messages.html" class="side-link"><i class="fa-solid fa-envelope"></i> Messages <span class="side-badge">8</span></a>
+        <p class="side-section-label">Other</p>
+        <a href="settings.html" class="side-link"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../index.html" class="side-link"><i class="fa-solid fa-globe"></i> View Website</a>
+        <a href="../login.html" class="side-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <div class="rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-bold">Studio at a glance</p>
+          <p class="text-[0.7rem] text-white/70 mt-1">Order cutoff today: 2:00 PM</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/15 overflow-hidden"><span class="block h-full w-[62%] rounded-full bg-[#fbbf24]"></span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="admin-sidebar-backdrop"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar px-4 sm:px-6 py-3 flex items-center gap-3">
+        <button type="button" class="icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden sm:block">
+          <p class="font-display text-lg font-semibold leading-tight">Bouquet Categories</p>
+          <p class="text-xs text-[color:var(--ink-soft)]">Occasions &amp; collections</p>
+        </div>
+        <div class="flex-1"></div>
+        <button type="button" class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <div class="relative" data-dropdown>
+          <button type="button" class="icon-btn relative" data-dropdown-btn aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="absolute -top-0.5 -end-0.5 w-2.5 h-2.5 rounded-full bg-[#C06389] ring-2 ring-[color:var(--surface)]"></span></button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-80" data-dropdown-menu style="inset-inline-end:0">
+            <p class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Notifications</p>
+            <a href="orders.html" class="!normal-case !font-semibold"><i class="fa-solid fa-basket-shopping text-[color:var(--primary)]"></i> New order #4821 — Spring Meadow</a>
+            <a href="messages.html" class="!normal-case !font-semibold"><i class="fa-solid fa-envelope text-[color:var(--leaf)]"></i> New message from Sofia A.</a>
+          </div>
+        </div>
+        <div class="relative" data-dropdown>
+          <button type="button" class="flex items-center gap-2 pe-1" data-dropdown-btn aria-label="Account menu">
+            <span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+            <span class="hidden lg:block text-start leading-tight"><span class="block text-sm font-bold">Iris Bennett</span><span class="block text-[0.7rem] text-[color:var(--ink-soft)]">Super Admin</span></span>
+            <i class="fa-solid fa-chevron-down text-xs text-[color:var(--ink-soft)]"></i>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-56" data-dropdown-menu style="inset-inline-end:0">
+            <a href="settings.html"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+            <a href="../login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-semibold">Bouquet categories by occasion</h1>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-1">Keep your catalogue organised around the moments people celebrate.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add Category</button>
+        </div>
+
+        <!-- Category cards -->
+        <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <div class="stat-card flex items-center gap-4 reveal">
+            <div class="stat-icon bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]"><i class="fa-solid fa-heart"></i></div>
+            <div class="flex-1">
+              <h2 class="font-display text-lg font-semibold">Valentine</h2>
+              <p class="text-xs text-[color:var(--ink-soft)]">142 orders this month</p>
+            </div>
+            <span class="pill pill-active">Active</span>
+          </div>
+          <div class="stat-card flex items-center gap-4 reveal">
+            <div class="stat-icon bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]"><i class="fa-solid fa-cake-candles"></i></div>
+            <div class="flex-1">
+              <h2 class="font-display text-lg font-semibold">Birthday</h2>
+              <p class="text-xs text-[color:var(--ink-soft)]">118 orders this month</p>
+            </div>
+            <span class="pill pill-active">Active</span>
+          </div>
+          <div class="stat-card flex items-center gap-4 reveal">
+            <div class="stat-icon bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]"><i class="fa-solid fa-ring"></i></div>
+            <div class="flex-1">
+              <h2 class="font-display text-lg font-semibold">Wedding</h2>
+              <p class="text-xs text-[color:var(--ink-soft)]">96 orders this month</p>
+            </div>
+            <span class="pill pill-active">Active</span>
+          </div>
+          <div class="stat-card flex items-center gap-4 reveal">
+            <div class="stat-icon bg-gradient-to-br from-[#469a62] to-[#6ab681]"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <div class="flex-1">
+              <h2 class="font-display text-lg font-semibold">Anniversary</h2>
+              <p class="text-xs text-[color:var(--ink-soft)]">84 orders this month</p>
+            </div>
+            <span class="pill pill-active">Active</span>
+          </div>
+          <div class="stat-card flex items-center gap-4 reveal">
+            <div class="stat-icon bg-gradient-to-br from-[#38bdf8] to-[#7dd3fc]"><i class="fa-solid fa-dove"></i></div>
+            <div class="flex-1">
+              <h2 class="font-display text-lg font-semibold">Sympathy</h2>
+              <p class="text-xs text-[color:var(--ink-soft)]">63 orders this month</p>
+            </div>
+            <span class="pill pill-active">Active</span>
+          </div>
+          <div class="stat-card flex items-center gap-4 reveal">
+            <div class="stat-icon bg-gradient-to-br from-[#f87171] to-[#fca5a5]"><i class="fa-solid fa-house-chimney-heart"></i></div>
+            <div class="flex-1">
+              <h2 class="font-display text-lg font-semibold">New Home</h2>
+              <p class="text-xs text-[color:var(--ink-soft)]">41 orders this month</p>
+            </div>
+            <span class="pill pill-off">Draft</span>
+          </div>
+        </div>
+
+        <!-- Chart + table -->
+        <div class="grid gap-5 lg:grid-cols-3 mt-5">
+          <div class="chart-card reveal">
+            <h2 class="font-display text-lg font-semibold mb-4">Orders by category</h2>
+            <div class="chart-box !h-72"><canvas id="chartCategories" aria-label="Orders by category chart" role="img"></canvas></div>
+          </div>
+          <div class="chart-card lg:col-span-2 reveal">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <h2 class="font-display text-lg font-semibold">Category management</h2>
+              <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 start-3.5 text-sm text-[color:var(--ink-soft)]"></i>
+                <input id="table-search" type="search" placeholder="Search categories..." class="form-input !rounded-full !py-2 ps-10 text-sm w-56" aria-label="Search categories">
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="admin-table min-w-[40rem]">
+                <thead>
+                  <tr><th>Category</th><th>Slug</th><th>Products</th><th>Featured</th><th>Status</th><th></th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="font-bold"><span class="me-2 inline-block w-2.5 h-2.5 rounded-full bg-[#F2C0D3]"></span>Valentine</td><td class="text-[color:var(--ink-soft)]">valentine</td><td>24</td><td><span class="pill pill-active">Featured</span></td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Edit</button></td></tr>
+                  <tr><td class="font-bold"><span class="me-2 inline-block w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>Birthday</td><td class="text-[color:var(--ink-soft)]">birthday</td><td>31</td><td><span class="pill pill-active">Featured</span></td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Edit</button></td></tr>
+                  <tr><td class="font-bold"><span class="me-2 inline-block w-2.5 h-2.5 rounded-full bg-[#C06389]"></span>Wedding</td><td class="text-[color:var(--ink-soft)]">wedding</td><td>18</td><td><span class="pill pill-active">Featured</span></td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Edit</button></td></tr>
+                  <tr><td class="font-bold"><span class="me-2 inline-block w-2.5 h-2.5 rounded-full bg-[#469a62]"></span>Anniversary</td><td class="text-[color:var(--ink-soft)]">anniversary</td><td>14</td><td><span class="pill pill-off">No</span></td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Edit</button></td></tr>
+                  <tr><td class="font-bold"><span class="me-2 inline-block w-2.5 h-2.5 rounded-full bg-[#38bdf8]"></span>Sympathy</td><td class="text-[color:var(--ink-soft)]">sympathy</td><td>11</td><td><span class="pill pill-off">No</span></td><td><span class="pill pill-active">Active</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Edit</button></td></tr>
+                  <tr><td class="font-bold"><span class="me-2 inline-block w-2.5 h-2.5 rounded-full bg-[#f87171]"></span>New Home</td><td class="text-[color:var(--ink-soft)]">new-home</td><td>8</td><td><span class="pill pill-off">No</span></td><td><span class="pill pill-off">Draft</span></td><td class="text-end"><button class="btn btn-sm btn-outline">Edit</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="px-6 py-5 text-center text-xs text-[color:var(--ink-soft)]">
+        © 2026 Bloomora Admin · Crafted for demo purposes
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

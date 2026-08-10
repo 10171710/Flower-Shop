@@ -1,0 +1,259 @@
+/* =========================================================
+   Bloomora Admin – dashboard stylesheet
+   Fresh, colorful & mobile-first. Complements assets/css/style.css.
+   ========================================================= */
+
+/* ---------- Layout ---------- */
+.admin-body {
+  --sidebar-w: 17rem;
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+  background: var(--cream);
+}
+html.dark .admin-body { background: #1d1a17; }
+
+.admin-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #662C45, #853A58 60%, #A24B6E);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 40;
+}
+html.dark .admin-sidebar { background: linear-gradient(180deg, #1e422d, #255036 60%, #2b6340); }
+
+.admin-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.admin-content { padding: 1.5rem; }
+@media (min-width: 1024px) { .admin-content { padding: 2rem; } }
+
+/* ---------- Sidebar internals ---------- */
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.72rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  transition: all 0.2s ease;
+}
+.side-link i { width: 1.15rem; text-align: center; font-size: 1rem; }
+.side-link:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.side-link.active {
+  background: rgba(255, 255, 255, 0.95);
+  color: #853A58;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
+}
+html.dark .side-link.active { color: #2b6340; }
+.side-badge {
+  margin-inline-start: auto;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+.side-link.active .side-badge { background: #FBEAF0; color: #853A58; }
+
+.side-section-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0.9rem 1rem 0.45rem;
+}
+
+/* ---------- Stat cards ---------- */
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  padding: 1.4rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.stat-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  color: var(--on-primary);
+}
+.trend-up { color: var(--leaf); font-weight: 700; }
+.trend-down { color: #dc2626; font-weight: 700; }
+
+/* ---------- Tables ---------- */
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.admin-table th {
+  text-align: start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.admin-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.admin-table tbody tr { transition: background 0.15s ease; }
+.admin-table tbody tr:hover { background: color-mix(in srgb, var(--primary) 5%, transparent); }
+
+.avatar-sm {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--on-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.avatar-lg {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: var(--on-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* ---------- Message body ---------- */
+.prose-card p { color: var(--ink); line-height: 1.75; margin-bottom: 0.9rem; }
+.prose-card p:last-child { margin-bottom: 0; }
+
+/* ---------- Status pills ---------- */
+.pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 800; padding: 0.28rem 0.7rem; border-radius: 999px; }
+.pill::before { content: ''; width: 0.45rem; height: 0.45rem; border-radius: 999px; }
+.pill-new::before { background: #C06389; }
+.pill-new { background: #FBEAF0; color: #853A58; }
+.pill-pending::before { background: #f59e0b; }
+.pill-pending { background: #fef3c7; color: #92400e; }
+.pill-delivered::before { background: #469a62; }
+.pill-delivered { background: #e3f3e6; color: #2b6340; }
+.pill-cancelled::before { background: #6b7280; }
+.pill-cancelled { background: #f3f4f6; color: #374151; }
+.pill-admin::before { background: #662C45; }
+.pill-admin { background: #f3e8ff; color: #6b21a8; }
+.pill-customer::before { background: #C06389; }
+.pill-customer { background: #FBEAF0; color: #853A58; }
+.pill-staff::before { background: #469a62; }
+.pill-staff { background: #e3f3e6; color: #2b6340; }
+.pill-subscriber::before { background: #38bdf8; }
+.pill-subscriber { background: #e0f2fe; color: #075985; }
+.pill-blocked::before { background: #dc2626; }
+.pill-blocked { background: #fee2e2; color: #991b1b; }
+.pill-inactive::before { background: #9ca3af; }
+.pill-inactive { background: #f3f4f6; color: #6b7280; }
+.pill-active::before { background: #469a62; }
+.pill-active { background: #e3f3e6; color: #2b6340; }
+.pill-off::before { background: #9ca3af; }
+.pill-off { background: #f3f4f6; color: #6b7280; }
+.pill-inseason::before { background: #34d399; }
+.pill-inseason { background: #d1fae5; color: #065f46; }
+.pill-limited::before { background: #f59e0b; }
+.pill-limited { background: #fef3c7; color: #92400e; }
+.pill-out::before { background: #dc2626; }
+.pill-out { background: #fee2e2; color: #991b1b; }
+
+/* ---------- Progress bars ---------- */
+.progress { height: 0.5rem; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.progress > span { display: block; height: 100%; border-radius: 999px; }
+
+/* ---------- Calendar / availability ---------- */
+.season-cell { border-radius: 0.9rem; padding: 0.9rem; border: 1px solid var(--line); background: var(--surface); }
+.season-dot { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 999px; }
+
+/* ---------- Inbox ---------- */
+.msg-item { display: flex; gap: 0.9rem; padding: 1rem; border-radius: 1rem; cursor: pointer; transition: background 0.15s ease; border: 1px solid transparent; }
+.msg-item:hover { background: color-mix(in srgb, var(--primary) 6%, transparent); }
+.msg-item.active { background: #FBEAF0; border-color: color-mix(in srgb, var(--primary) 30%, transparent); }
+.dark .msg-item.active { background: rgba(242, 192, 211, 0.16); }
+
+/* ---------- Toggle switch ---------- */
+.switch { position: relative; display: inline-block; width: 2.75rem; height: 1.5rem; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch .track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1.5px solid var(--line);
+  transition: 0.25s;
+}
+.switch .track::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  inset-inline-start: 0.15rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: 0.25s;
+}
+.switch input:checked + .track { background: var(--leaf); border-color: var(--leaf); }
+.switch input:checked + .track::after { inset-inline-start: calc(100% - 1.15rem); }
+
+/* ---------- Chart card ---------- */
+.chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.4rem; box-shadow: var(--shadow-soft); }
+.chart-box { position: relative; height: 18rem; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 1023px) {
+  .admin-body { grid-template-columns: 1fr; }
+  .admin-sidebar {
+    position: fixed;
+    inset-inline-start: 0;
+    top: 0;
+    width: min(17rem, 85vw);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .admin-body.sidebar-open .admin-sidebar { transform: translateX(0); }
+  .admin-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 15, 0.55);
+    z-index: 35;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+  }
+  .admin-body.sidebar-open .admin-sidebar-backdrop { opacity: 1; visibility: visible; }
+}

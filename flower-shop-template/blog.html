@@ -45,10 +45,11 @@
           <div class="card p-5 mb-8 reveal">
             <div class="flex flex-col md:flex-row gap-4">
               <div class="relative flex-1">
-                <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 start-4 text-[color:var(--ink-soft)]"></i>
+                <button type="button" id="blog-search-icon" class="absolute top-1/2 -translate-y-1/2 start-4 text-[color:var(--ink-soft)] hover:text-[color:var(--primary)] transition-colors" aria-label="Search articles"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <label class="sr-only" for="blog-search">Search articles</label>
                 <input id="blog-search" class="form-input !rounded-full ps-11" type="search" placeholder="Search articles, flowers, guides...">
               </div>
+              <button type="button" id="blog-search-btn" class="btn btn-primary md:self-center">Search</button>
             </div>
             <div class="flex flex-wrap gap-2 mt-4" role="group" aria-label="Filter by category">
               <button type="button" class="chip active" data-filter="all">All</button>
@@ -175,10 +176,10 @@
           <div class="card p-6 reveal">
             <h3 class="font-display text-lg font-semibold mb-4">Categories</h3>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-hand-holding-heart text-[color:var(--primary)]"></i> Care Guides</span><span class="badge badge-neutral">18</span></a></li>
-              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-wand-magic-sparkles text-[color:var(--honey)]"></i> Trends</span><span class="badge badge-neutral">12</span></a></li>
-              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-ring text-[color:var(--leaf)]"></i> Weddings</span><span class="badge badge-neutral">9</span></a></li>
-              <li><a href="blog.html" class="flex items-center justify-between py-1.5 px-3 rounded-xl hover:bg-[color:var(--surface-2)] transition-colors"><span class="flex items-center gap-3"><i class="fa-solid fa-cloud-sun text-[color:var(--primary)]"></i> Seasons</span><span class="badge badge-neutral">7</span></a></li>
+              <li class="flex items-center justify-between py-1.5 px-3 rounded-xl"><span class="flex items-center gap-3"><i class="fa-solid fa-hand-holding-heart text-[color:var(--primary)]"></i> Care Guides</span><span class="badge badge-neutral">18</span></li>
+              <li class="flex items-center justify-between py-1.5 px-3 rounded-xl"><span class="flex items-center gap-3"><i class="fa-solid fa-wand-magic-sparkles text-[color:var(--honey)]"></i> Trends</span><span class="badge badge-neutral">12</span></li>
+              <li class="flex items-center justify-between py-1.5 px-3 rounded-xl"><span class="flex items-center gap-3"><i class="fa-solid fa-ring text-[color:var(--leaf)]"></i> Weddings</span><span class="badge badge-neutral">9</span></li>
+              <li class="flex items-center justify-between py-1.5 px-3 rounded-xl"><span class="flex items-center gap-3"><i class="fa-solid fa-cloud-sun text-[color:var(--primary)]"></i> Seasons</span><span class="badge badge-neutral">7</span></li>
             </ul>
           </div>
 

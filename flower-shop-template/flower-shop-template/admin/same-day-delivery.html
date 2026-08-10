@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Same-Day Delivery | Bloomora Admin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="font-body bg-cream text-cocoa-800 dark:bg-cocoa-950 dark:text-cocoa-100">
+  <div class="admin-body" id="admin-body">
+
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="px-5 py-5 flex items-center border-b border-white/10">
+        <img src="../assets/img/logo.svg" alt="Bloomora" class="w-10 h-10">
+        <div>
+          <p class="font-display font-semibold text-2xl tracking-tight">Bloomora</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mt-1">Admin Panel</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-3 py-4" aria-label="Admin navigation">
+        <p class="side-section-label">Main</p>
+        <a href="index.html" class="side-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="bouquet-categories.html" class="side-link"><i class="fa-solid fa-shapes"></i> Bouquet Categories</a>
+        <a href="seasonal-availability.html" class="side-link"><i class="fa-solid fa-calendar-days"></i> Seasonal Availability</a>
+        <a href="same-day-delivery.html" class="side-link active" aria-current="page"><i class="fa-solid fa-truck-fast"></i> Same-Day Delivery</a>
+        <a href="custom-order.html" class="side-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Orders <span class="side-badge">5</span></a>
+        <p class="side-section-label">Manage</p>
+        <a href="orders.html" class="side-link"><i class="fa-solid fa-basket-shopping"></i> Orders <span class="side-badge">12</span></a>
+        <a href="users.html" class="side-link"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="messages.html" class="side-link"><i class="fa-solid fa-envelope"></i> Messages <span class="side-badge">8</span></a>
+        <p class="side-section-label">Other</p>
+        <a href="settings.html" class="side-link"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../index.html" class="side-link"><i class="fa-solid fa-globe"></i> View Website</a>
+        <a href="../login.html" class="side-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <div class="rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-bold">Studio at a glance</p>
+          <p class="text-[0.7rem] text-white/70 mt-1">Order cutoff today: 2:00 PM</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/15 overflow-hidden"><span class="block h-full w-[62%] rounded-full bg-[#fbbf24]"></span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="admin-sidebar-backdrop"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar px-4 sm:px-6 py-3 flex items-center gap-3">
+        <button type="button" class="icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden sm:block">
+          <p class="font-display text-lg font-semibold leading-tight">Same-Day Delivery</p>
+          <p class="text-xs text-[color:var(--ink-soft)]">Fleet, zones &amp; dispatch</p>
+        </div>
+        <div class="flex-1"></div>
+        <button type="button" class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <div class="relative" data-dropdown>
+          <button type="button" class="icon-btn relative" data-dropdown-btn aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="absolute -top-0.5 -end-0.5 w-2.5 h-2.5 rounded-full bg-[#C06389] ring-2 ring-[color:var(--surface)]"></span></button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-80" data-dropdown-menu style="inset-inline-end:0">
+            <p class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Notifications</p>
+            <a href="same-day-delivery.html" class="!normal-case !font-semibold"><i class="fa-solid fa-truck-fast text-[color:var(--honey)]"></i> 3 deliveries pending dispatch</a>
+            <a href="orders.html" class="!normal-case !font-semibold"><i class="fa-solid fa-basket-shopping text-[color:var(--primary)]"></i> New order #4821 — Spring Meadow</a>
+          </div>
+        </div>
+        <div class="relative" data-dropdown>
+          <button type="button" class="flex items-center gap-2 pe-1" data-dropdown-btn aria-label="Account menu">
+            <span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">IB</span>
+            <span class="hidden lg:block text-start leading-tight"><span class="block text-sm font-bold">Iris Bennett</span><span class="block text-[0.7rem] text-[color:var(--ink-soft)]">Super Admin</span></span>
+            <i class="fa-solid fa-chevron-down text-xs text-[color:var(--ink-soft)]"></i>
+          </button>
+          <div class="dropdown-menu !opacity-100 !visible !static lg:!absolute hidden end-0 start-auto mt-2 w-56" data-dropdown-menu style="inset-inline-end:0">
+            <a href="settings.html"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+            <a href="../login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-semibold">Same-day delivery</h1>
+            <p class="text-sm text-[color:var(--ink-soft)] mt-1">Guaranteed doorstep blooms before 6 PM — order before 2 PM.</p>
+          </div>
+          <div class="flex gap-2">
+            <button type="button" class="btn btn-outline btn-sm"><i class="fa-solid fa-location-dot"></i> Manage Zones</button>
+            <button type="button" class="btn btn-primary btn-sm"><i class="fa-solid fa-truck-fast"></i> Dispatch Now</button>
+          </div>
+        </div>
+
+        <!-- Delivery status -->
+        <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Today's deliveries</p><p class="font-display text-3xl font-semibold mt-2">27</p><p class="text-xs mt-1.5 text-[color:var(--ink-soft)]">18 completed</p></div>
+              <div class="stat-icon bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]"><i class="fa-solid fa-truck"></i></div>
+            </div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Cutoff countdown</p><p class="font-display text-3xl font-semibold mt-2 text-[color:var(--honey)]">1h 12m</p><p class="text-xs mt-1.5 text-[color:var(--ink-soft)]">Cutoff at 2:00 PM</p></div>
+              <div class="stat-icon bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]"><i class="fa-solid fa-hourglass-half"></i></div>
+            </div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">On-time rate</p><p class="font-display text-3xl font-semibold mt-2">98.2%</p><p class="text-xs mt-1.5"><span class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +0.4%</span> this week</p></div>
+              <div class="stat-icon bg-gradient-to-br from-[#469a62] to-[#6ab681]"><i class="fa-solid fa-clock"></i></div>
+            </div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="flex items-start justify-between">
+              <div><p class="text-xs font-bold uppercase tracking-wider text-[color:var(--ink-soft)]">Active couriers</p><p class="font-display text-3xl font-semibold mt-2">6 <span class="text-base text-[color:var(--ink-soft)]">/ 8 fleet</span></p><p class="text-xs mt-1.5 text-[color:var(--ink-soft)]">2 off-shift</p></div>
+              <div class="stat-icon bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]"><i class="fa-solid fa-users-gear"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zones + options -->
+        <div class="grid gap-5 lg:grid-cols-2 mt-5">
+          <div class="chart-card reveal">
+            <h2 class="font-display text-lg font-semibold mb-4">Delivery zones</h2>
+            <div class="rounded-2xl overflow-hidden shadow-soft ring-1 ring-[color:var(--line)]">
+              <iframe title="Bloomora delivery map" src="https://www.google.com/maps?q=Rosewood%20Avenue&output=embed" class="w-full h-52 border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="flex items-center justify-between py-1.5 border-b border-[color:var(--line)]"><span class="flex items-center gap-2.5"><span class="season-dot bg-[#469a62]"></span> Zone A · City centre</span><span class="font-bold">Free</span></li>
+              <li class="flex items-center justify-between py-1.5 border-b border-[color:var(--line)]"><span class="flex items-center gap-2.5"><span class="season-dot bg-[#C06389]"></span> Zone B · Metro ring</span><span class="font-bold">$8</span></li>
+              <li class="flex items-center justify-between py-1.5 border-b border-[color:var(--line)]"><span class="flex items-center gap-2.5"><span class="season-dot bg-[#f59e0b]"></span> Zone C · Suburbs</span><span class="font-bold">$15</span></li>
+              <li class="flex items-center justify-between py-1.5"><span class="flex items-center gap-2.5"><span class="season-dot bg-[#C06389]"></span> Zone D · Nearby towns</span><span class="font-bold">$25</span></li>
+            </ul>
+          </div>
+
+          <div class="chart-card reveal">
+            <h2 class="font-display text-lg font-semibold mb-4">Delivery options</h2>
+            <div class="space-y-3">
+              <div class="season-cell flex items-center justify-between gap-3 !bg-[color:var(--surface)]">
+                <div><p class="font-bold text-sm">Standard — next day</p><p class="text-xs text-[color:var(--ink-soft)]">Free over $60 · 24h window</p></div>
+                <div class="flex items-center gap-3"><span class="badge badge-neutral">Default</span><span class="font-bold">$0–8</span></div>
+              </div>
+              <div class="season-cell flex items-center justify-between gap-3 !bg-[#FBEAF0]">
+                <div><p class="font-bold text-sm">Same-day express</p><p class="text-xs text-[color:var(--ink-soft)]">Order by 2 PM · deliver by 6 PM</p></div>
+                <div class="flex items-center gap-3"><span class="pill pill-inseason">Most used</span><span class="font-bold">$12</span></div>
+              </div>
+              <div class="season-cell flex items-center justify-between gap-3 !bg-[color:var(--surface)]">
+                <div><p class="font-bold text-sm">Priority 3-hour</p><p class="text-xs text-[color:var(--ink-soft)]">Within Zone A &amp; B only</p></div>
+                <div class="flex items-center gap-3"><span class="badge badge-honey">Premium</span><span class="font-bold">$19</span></div>
+              </div>
+              <div class="season-cell flex items-center justify-between gap-3 !bg-[color:var(--surface)]">
+                <div><p class="font-bold text-sm">In-store pickup</p><p class="text-xs text-[color:var(--ink-soft)]">Ready in 2 hours</p></div>
+                <div class="flex items-center gap-3"><span class="badge badge-neutral">Free</span><span class="font-bold">$0</span></div>
+              </div>
+            </div>
+            <div class="mt-5 flex items-center justify-between gap-4 rounded-xl bg-[#fef3c7] p-4 text-sm text-[#92400e]">
+              <div class="flex items-center gap-2.5"><i class="fa-solid fa-bolt"></i> <span>Orders before <strong>2:00 PM</strong> qualify for same-day delivery.</span></div>
+              <label class="switch shrink-0"><input type="checkbox" checked aria-label="Accept same-day orders"><span class="track"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dispatch queue -->
+        <div class="chart-card mt-5 reveal">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div><h2 class="font-display text-lg font-semibold">Dispatch queue</h2><p class="text-xs text-[color:var(--ink-soft)]">Ready for the next courier round</p></div>
+            <div class="flex gap-2" role="group" aria-label="Filter dispatch by status">
+              <button type="button" class="chip active" data-status-filter="all">All</button>
+              <button type="button" class="chip" data-status-filter="ready">Ready</button>
+              <button type="button" class="chip" data-status-filter="out">Out for delivery</button>
+              <button type="button" class="chip" data-status-filter="done">Delivered</button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="admin-table min-w-[44rem]">
+              <thead><tr><th>Order</th><th>Zone</th><th>Slot</th><th>Courier</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr data-status="out"><td class="font-bold">#4821 · Spring Meadow</td><td>Zone A</td><td>2–4 PM</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#469a62] to-[#6ab681]">RA</span> Rafa A.</div></td><td><span class="pill pill-pending">Out for delivery</span></td></tr>
+                <tr data-status="ready"><td class="font-bold">#4820 · Sweet Serenade</td><td>Zone B</td><td>3–5 PM</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#F2C0D3] to-[#E8A5BE]">NO</span> —</div></td><td><span class="pill pill-new">Ready</span></td></tr>
+                <tr data-status="done"><td class="font-bold">#4819 · Ivory Grace</td><td>Zone A</td><td>Pickup</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#38bdf8] to-[#7dd3fc]">—</span> Customer</div></td><td><span class="pill pill-delivered">Delivered</span></td></tr>
+                <tr data-status="ready"><td class="font-bold">#4818 · Lavender Haze</td><td>Zone C</td><td>4–6 PM</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f59e0b] to-[#fbbf24]">TM</span> Tia M.</div></td><td><span class="pill pill-new">Ready</span></td></tr>
+                <tr data-status="out"><td class="font-bold">#4817 · Golden Hour ×2</td><td>Zone B</td><td>2–4 PM</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#D985A5] to-[#E8A5BE]">KD</span> Kofi D.</div></td><td><span class="pill pill-pending">Out for delivery</span></td></tr>
+                <tr data-status="done"><td class="font-bold">#4816 · Dutch Romance</td><td>Zone A</td><td>12–2 PM</td><td><div class="flex items-center gap-2.5"><span class="avatar-sm bg-gradient-to-br from-[#f87171] to-[#fca5a5]">RA</span> Rafa A.</div></td><td><span class="pill pill-delivered">Delivered</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <footer class="px-6 py-5 text-center text-xs text-[color:var(--ink-soft)]">
+        © 2026 Bloomora Admin · Crafted for demo purposes
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
