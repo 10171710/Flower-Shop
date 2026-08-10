@@ -474,12 +474,50 @@
     var form = nameInput.closest('form');
     if (!form) return;
 
+    var phoneInput = document.getElementById('ct-phone');
+    var phoneHint = document.getElementById('ct-phone-err');
+
+    function showPhoneError(msg) {
+      if (phoneHint) {
+        phoneHint.textContent = msg;
+        phoneHint.classList.remove('hidden');
+      }
+      if (phoneInput) phoneInput.classList.add('field-error');
+    }
+    function hidePhoneError() {
+      if (phoneHint) phoneHint.classList.add('hidden');
+      if (phoneInput) phoneInput.classList.remove('field-error');
+    }
+
+    if (phoneInput && phoneHint) {
+      phoneInput.addEventListener('beforeinput', function (e) {
+        if (e.data && !/^\d*$/.test(e.data)) {
+          e.preventDefault();
+          showPhoneError('Only numbers are allowed.');
+        }
+      });
+      phoneInput.addEventListener('input', function () {
+        var cleaned = phoneInput.value.replace(/\D/g, '');
+        if (cleaned !== phoneInput.value) {
+          phoneInput.value = cleaned;
+          showPhoneError('Only numbers are allowed.');
+        } else if (cleaned.length === 10) {
+          hidePhoneError();
+        }
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = nameInput.value.trim();
       var email = document.getElementById('ct-email').value.trim();
       var msg = document.getElementById('ct-message').value.trim();
+      var phone = phoneInput ? phoneInput.value.trim() : '';
       if (!name || !msg || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+      if (phone.length !== 10) {
+        showPhoneError('Phone number must be exactly 10 digits.');
+        return;
+      }
 
       form.reset();
       if (window.BloomShop && window.BloomShop.showPopup) {

@@ -76,7 +76,7 @@
               <div class="grid sm:grid-cols-2 gap-4">
                 <div><label class="form-label" for="ct-name">Full name</label><input id="ct-name" class="form-input" type="text" placeholder="Jane Doe" required></div>
                 <div><label class="form-label" for="ct-email">Email address</label><input id="ct-email" class="form-input" type="email" placeholder="jane@example.com" required></div>
-                <div><label class="form-label" for="ct-phone">Phone (optional)</label><input id="ct-phone" class="form-input" type="tel" placeholder="&#x202A;+1 (555) 000-0000&#x202C;"></div>
+                <div><label class="form-label" for="ct-phone">Phone number</label><input id="ct-phone" class="form-input" type="tel" inputmode="numeric" maxlength="10" placeholder="&#x202A;+1 (555) 000-0000&#x202C;"><p id="ct-phone-err" class="field-hint hidden">Enter a 10-digit phone number.</p></div>
                 <div><label class="form-label" for="ct-subject">Subject</label>
                   <select id="ct-subject" class="form-select">
                     <option>General enquiry</option>
