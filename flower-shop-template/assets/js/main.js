@@ -62,8 +62,10 @@
   }
 
   /* In RTL the bidi algorithm pulls a sentence's terminal dot to the LEFT
-     (e.g. ".the metro area"). Insert an LRM after each sentence-ending
-     mark so the dot stays on the RIGHT, after the sentence. Harmless in LTR. */
+     (e.g. ".the metro area") and detaches a leading number or symbol (e.g.
+     "reserved. © 2026"). Insert an LRM after each sentence-ending mark and
+     before leading digits/symbols so the dot stays on the RIGHT and the
+     line stays anchored. Harmless in LTR. */
   function fixSentenceDotsRTL() {
     if (root.getAttribute('dir') !== 'rtl') return;
     var LRM = '\u200E';
@@ -71,12 +73,24 @@
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(function (n) {
+      var p = n.parentNode;
+      if (!p || p.nodeType !== 1 || /^(SCRIPT|STYLE|TEMPLATE|NOSCRIPT|TEXTAREA)$/.test(p.nodeName)) return;
       var t = n.textContent;
-      if (!t || (t.indexOf('.') === -1 && t.indexOf('?') === -1 && t.indexOf('!') === -1)) return;
+      if (!t || (t.indexOf('.') === -1 && t.indexOf('?') === -1 && t.indexOf('!') === -1 && !/\d/.test(t))) return;
       var out = '';
       var changed = false;
+      var lineStart = true;
       for (var i = 0; i < t.length; i++) {
         var c = t[i];
+        if (lineStart && !/\s/.test(c) && c !== LRM && c !== '.' && c !== '?' && c !== '!' && !(c >= 'A' && c <= 'Z') && !(c >= 'a' && c <= 'z')) {
+          out += LRM;
+          changed = true;
+          lineStart = false;
+        } else if (c === LRM) {
+          lineStart = false;
+        } else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+          lineStart = false;
+        }
         out += c;
         if (c === '.' || c === '?' || c === '!') {
           var prev = i > 0 ? t[i - 1] : '';
@@ -88,6 +102,7 @@
           if (!ellipsis && !decimal && !midWord && !already) {
             out += LRM;
             changed = true;
+            lineStart = true;
           }
         }
       }
@@ -100,9 +115,27 @@
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(function (n) {
+      var p = n.parentNode;
+      if (!p || p.nodeType !== 1 || /^(SCRIPT|STYLE|TEMPLATE|NOSCRIPT|TEXTAREA)$/.test(p.nodeName)) return;
       if (n.textContent.indexOf(LRM) === -1) return;
       n.textContent = n.textContent.split(LRM).join('');
     });
+  }
+
+  /* Fix dots in content injected after init (shop lists, blog filters…). */
+  function observeSentenceMarks() {
+    if (observeSentenceMarks._obs) return;
+    var scheduled = false;
+    observeSentenceMarks._obs = new MutationObserver(function () {
+      if (root.getAttribute('dir') !== 'rtl') return;
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(function () {
+        scheduled = false;
+        fixSentenceDotsRTL();
+      });
+    });
+    observeSentenceMarks._obs.observe(document.body, { childList: true, subtree: true, characterData: true });
   }
 
   /* ---------- Mobile menu ---------- */
@@ -125,6 +158,24 @@
     });
     window.addEventListener('resize', function () {
       if (window.innerWidth >= 1024) closeMenu();
+    });
+  }
+
+  /* ---------- Hover feedback fallback ----------
+     Device-mode / touch emulation suppresses CSS :hover on mouse move.
+     Track real mouse movement with a class so card hover effects still show. */
+  function setupHoverFallback() {
+    var SELECTOR = '.card, .stats-card, .spotlight';
+    document.addEventListener('mouseover', function (e) {
+      var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+      if (el) el.classList.add('m-hover');
+    });
+    document.addEventListener('mouseout', function (e) {
+      var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+      if (!el) return;
+      var to = e.relatedTarget;
+      if (to && to.closest && to.closest(SELECTOR) === el) return;
+      el.classList.remove('m-hover');
     });
   }
 
@@ -356,6 +407,7 @@
     if (!wrap) return;
     var gridBtn = document.getElementById('view-grid');
     var listBtn = document.getElementById('view-list');
+    if (!gridBtn || !listBtn) return;
     gridBtn.addEventListener('click', function () {
       wrap.classList.remove('services-list');
       wrap.classList.add('services-grid');
@@ -531,8 +583,10 @@
     syncThemeIcon();
     syncRtlState();
     fixSentenceDotsRTL();
+    observeSentenceMarks();
     setupMobileMenu();
     setupDropdowns();
+    setupHoverFallback();
     setupBackToTop();
     setupReveal();
     setupStagger();

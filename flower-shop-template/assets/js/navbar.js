@@ -9,41 +9,32 @@
 (function () {
   'use strict';
 
-  /* Resolve the current file name to highlight the active link */
-  var path = window.location.pathname.split('/').pop() || 'index.html';
-
-  function current() { return path; }
-
-  function linkTo(href, label, icon, extra) {
-    var active = (href === current() ? ' active' : '') + (extra || '');
-    var iconHtml = icon ? '<i class="' + icon + '"></i>' : '';
-    return '<a class="nav-link' + active + '" href="' + href + '">' + iconHtml + ' ' + label + '</a>';
+  function linkTo(href, label, extra) {
+    return '<a class="nav-link' + (extra || '') + '" href="' + href + '">' + label + '</a>';
   }
 
-  function dropdown(label, icon, items) {
+  function dropdown(label, items) {
     var list = items.map(function (it) {
-      var cls = it.href === current() ? 'active' : '';
-      return '<a class="' + cls + '" href="' + it.href + '">' +
-        (it.icon ? '<i class="' + it.icon + '"></i>' : '') + it.label + '</a>';
+      return '<a href="' + it.href + '">' + it.label + '</a>';
     }).join('');
     return '<li class="nav-group">' +
       '<button type="button" class="nav-link nav-drop-trigger" aria-haspopup="true" aria-expanded="false">' +
-      (icon ? '<i class="' + icon + '"></i> ' : '') + label +
+      label +
       ' <i class="fa-solid fa-chevron-down text-[0.65em] opacity-60"></i></button>' +
       '<div class="dropdown-menu" role="menu">' + list + '</div>' +
       '</li>';
   }
 
   var nav = [
-    dropdown('Home', 'fa-solid fa-house', [
-      { label: 'Home – Services', href: 'index.html', icon: 'fa-solid fa-briefcase' },
-      { label: 'Home – Floral Shop', href: 'index-floral.html', icon: 'fa-solid fa-seedling' }
+    dropdown('Home', [
+      { label: 'Home – Services', href: 'index.html' },
+      { label: 'Home – Floral Shop', href: 'index-floral.html' }
     ]),
-    linkTo('about.html', 'About', 'fa-solid fa-circle-info'),
-    linkTo('services.html', 'Services', 'fa-solid fa-spa'),
-    linkTo('pricing.html', 'Pricing', 'fa-solid fa-tags'),
-    linkTo('blog.html', 'Blog', 'fa-solid fa-pen-nib'),
-    linkTo('contact.html', 'Contact', 'fa-solid fa-envelope')
+    linkTo('about.html', 'About'),
+    linkTo('services.html', 'Services'),
+    linkTo('pricing.html', 'Pricing'),
+    linkTo('blog.html', 'Blog'),
+    linkTo('contact.html', 'Contact')
   ].join('');
 
   var logo = '<a class="flex items-center" href="index.html" aria-label="Bloomora home">' +
@@ -83,6 +74,18 @@
     : '<a href="login.html" class="btn btn-outline btn-sm hidden lg:inline-flex"><i class="fa-solid fa-right-to-bracket"></i> Login</a>' +
       '<a href="register.html" class="btn btn-primary btn-sm hidden lg:inline-flex"><i class="fa-solid fa-user-plus"></i> Sign Up</a>';
 
+  function mobileLink(href, label) {
+    return '<a href="' + href + '">' + label + '</a>';
+  }
+
+  var mobileMenuLinks = mobileLink('index.html', 'Home – Services') +
+    mobileLink('index-floral.html', 'Home – Floral Shop') +
+    mobileLink('about.html', 'About Us') +
+    mobileLink('services.html', 'Services') +
+    mobileLink('pricing.html', 'Pricing') +
+    mobileLink('blog.html', 'Blog') +
+    mobileLink('contact.html', 'Contact Us');
+
   var mobileAuth = auth
     ? '<div class="m-user">' +
       '<span class="m-avatar">' + userInitial + '</span>' +
@@ -111,13 +114,7 @@
     '</nav>' +
     '</div>' +
     '<div class="mobile-menu" id="mobile-menu">' +
-    '<a href="index.html">Home – Services</a>' +
-    '<a href="index-floral.html">Home – Floral Shop</a>' +
-    '<a href="about.html">About Us</a>' +
-    '<a href="services.html">Services</a>' +
-    '<a href="pricing.html">Pricing</a>' +
-    '<a href="blog.html">Blog</a>' +
-    '<a href="contact.html">Contact Us</a>' +
+    mobileMenuLinks +
     '<a href="#" class="m-cart" id="cart-toggle-mobile"><i class="fa-solid fa-bag-shopping"></i> Shopping Cart <span class="m-cart-count">0</span></a>' +
     mobileAuth +
     '</div>' +
@@ -125,6 +122,22 @@
 
   var host = document.getElementById('site-header');
   if (host) { host.innerHTML = header; }
+
+  var mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenu) {
+    mobileMenu.addEventListener('mouseover', function (e) {
+      var link = e.target.closest ? e.target.closest('a') : null;
+      if (link && link.classList.contains('m-cta')) return;
+      if (link) link.classList.add('m-hover');
+    });
+    mobileMenu.addEventListener('mouseout', function (e) {
+      var link = e.target.closest ? e.target.closest('a') : null;
+      if (!link) return;
+      var to = e.relatedTarget;
+      if (to && to.closest && to.closest('a') === link) return;
+      link.classList.remove('m-hover');
+    });
+  }
 
   function bindLogout() {
     if (!window.BloomAuth) return;
