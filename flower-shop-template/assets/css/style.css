@@ -243,13 +243,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
+  -webkit-tap-highlight-color: transparent;
 }
 .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; }
-.card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lift);
-  border-color: color-mix(in srgb, var(--primary) 35%, transparent);
-}
 
 /* ---------- Equal-height image cards ----------
    Lock the media frame to a fixed ratio and stretch the
@@ -910,8 +906,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 html:not(.dark) .hover\:text-\[color\:var\(--primary\)\]:hover { color: var(--primary-dark); }
 
 /* Light-theme: deepen the pale-pink hover accents so they are clearly visible */
-html:not(.dark) .card-hover:hover { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
-html:not(.dark) .stats-card:hover { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
 html:not(.dark) .spotlight::before {
   background: radial-gradient(
     260px circle at var(--mx, 50%) var(--my, 50%),
@@ -923,8 +917,7 @@ html:not(.dark) .btn-primary:hover,
 html:not(.dark) .mobile-menu .m-cta:hover { background: linear-gradient(120deg, #D985A5, var(--primary-dark)); }
 html:not(.dark) .btn-light:hover { border-color: color-mix(in srgb, var(--primary-dark) 45%, transparent); }
 
-/* Clearly visible background hover effects on cards, in both themes */
-.card:hover { background-color: color-mix(in srgb, var(--primary) 25%, var(--surface)); }
+/* Card background transition (press / click state) */
 .card:not(.card-hover) { transition: background-color 0.3s ease; }
 
 /* Light-theme: clearly visible background hover effects */
@@ -934,14 +927,53 @@ html:not(.dark) .btn-outline:hover { background-color: color-mix(in srgb, var(--
 html:not(.dark) .accordion-btn:hover { background-color: color-mix(in srgb, var(--primary) 35%, var(--surface)); }
 html:not(.dark) .dropdown-menu a:hover { background-color: color-mix(in srgb, var(--primary) 65%, var(--surface)); }
 
-/* Hover feedback fallback: JS adds .m-hover where touch emulation suppresses :hover */
-.card.m-hover { background-color: color-mix(in srgb, var(--primary) 25%, var(--surface)); }
-.card-hover.m-hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
-.stats-card.m-hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
-html:not(.dark) .card-hover.m-hover,
-html:not(.dark) .stats-card.m-hover { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
-.spotlight.m-hover::before { opacity: 1; }
-.card-hover.m-hover .icon-tile { transform: translateY(-4px) scale(1.06); box-shadow: var(--shadow-lift); }
+/* Hover fallback mirrors for interactive controls (JS adds .m-hover) */
+.nav-link.m-hover { color: var(--ink); }
+.nav-link.m-hover::after { transform: scaleX(1); }
+.icon-btn.m-hover { border-color: var(--primary-dark); color: var(--primary-dark); transform: translateY(-2px); }
+.dark .icon-btn.m-hover { border-color: var(--primary); color: var(--primary); background: color-mix(in srgb, var(--primary) 26%, transparent); }
+.chip.m-hover { border-color: var(--primary-dark); color: var(--primary-dark); }
+.btn-primary.m-hover { transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(133, 58, 88, 0.38); background: linear-gradient(120deg, var(--primary), #D985A5); }
+.btn-outline.m-hover { border-color: var(--primary-dark); color: var(--primary-dark); transform: translateY(-2px); }
+.btn-light.m-hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+.mobile-menu .m-cta.m-hover { color: var(--on-primary); background: linear-gradient(120deg, var(--primary), #D985A5); }
+.dropdown-menu a.m-hover { background: #FBEAF0; color: var(--primary-dark); }
+.dark .dropdown-menu a.m-hover { background: rgba(242, 192, 211, 0.16); color: #E8A5BE; }
+html:not(.dark) .btn-primary.m-hover,
+html:not(.dark) .mobile-menu .m-cta.m-hover { background: linear-gradient(120deg, #D985A5, var(--primary-dark)); }
+html:not(.dark) .btn-light.m-hover { border-color: color-mix(in srgb, var(--primary-dark) 45%, transparent); }
+html:not(.dark) .chip.m-hover { background-color: color-mix(in srgb, var(--primary) 50%, var(--surface)); }
+html:not(.dark) .icon-btn.m-hover { background-color: color-mix(in srgb, var(--primary) 45%, var(--surface)); }
+html:not(.dark) .btn-outline.m-hover { background-color: color-mix(in srgb, var(--primary) 35%, var(--surface)); }
+html:not(.dark) .accordion-btn.m-hover { background-color: color-mix(in srgb, var(--primary) 35%, var(--surface)); }
+.price-card.featured .btn-primary.m-hover { background: #fbbf24; }
+
+/* Press state (touch / tap): JS adds .is-pressed on pointer down so the
+   highlight is clearly visible and identical to the desktop hover effect. */
+.card.is-pressed { background-color: color-mix(in srgb, var(--primary) 25%, var(--surface)); }
+.card-hover.is-pressed, .stats-card.is-pressed { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
+html:not(.dark) .card-hover.is-pressed,
+html:not(.dark) .stats-card.is-pressed { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
+.spotlight.is-pressed::before { opacity: 1; }
+.card-hover.is-pressed .icon-tile { transform: translateY(-4px) scale(1.06); box-shadow: var(--shadow-lift); }
+
+/* Cards animate background-color over 0.3s; a tap only lasts ~100ms so the
+   highlight never became visible. Snap the press state in fast instead. */
+.card.is-pressed, .card-hover.is-pressed, .stats-card.is-pressed,
+.card:active, .card-hover:active, .stats-card:active { transition-duration: 0.05s; }
+
+/* Remove the default tap highlight that can mask the custom press color */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Native touch press fallback where hover is not supported */
+@media (hover: none) {
+  .card:active { background-color: color-mix(in srgb, var(--primary) 25%, var(--surface)); }
+  .card-hover:active, .stats-card:active { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
+  html:not(.dark) .card-hover:active,
+  html:not(.dark) .stats-card:active { border-color: color-mix(in srgb, var(--primary-dark) 40%, transparent); }
+  .spotlight:active::before { opacity: 1; }
+  .card-hover:active .icon-tile { transform: translateY(-4px) scale(1.06); box-shadow: var(--shadow-lift); }
+}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -1051,7 +1083,6 @@ html:not(.dark) .stats-card.m-hover { border-color: color-mix(in srgb, var(--pri
   pointer-events: none;
   z-index: 1;
 }
-.spotlight:hover::before { opacity: 1; }
 
 /* =========================================================
    Staggered reveal
@@ -1105,7 +1136,6 @@ html:not(.dark) .stats-card.m-hover { border-color: color-mix(in srgb, var(--pri
 
 /* Stats hover lift */
 .stats-card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-.stats-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -1262,7 +1292,6 @@ body.loaded .page-anim { opacity: 1; transform: none; }
   box-shadow: 0 8px 20px -10px rgba(44, 33, 27, 0.35);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
-.card-hover:hover .icon-tile { transform: translateY(-4px) scale(1.06); box-shadow: var(--shadow-lift); }
 .num-ghost {
   position: absolute;
   top: 0.75rem;

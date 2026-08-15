@@ -161,22 +161,93 @@
     });
   }
 
-  /* ---------- Hover feedback fallback ----------
+  /* ---------- Hover feedback fallback (interactive controls) ----------
      Device-mode / touch emulation suppresses CSS :hover on mouse move.
-     Track real mouse movement with a class so card hover effects still show. */
+     Cards intentionally show their effect only on click; controls keep hover. */
   function setupHoverFallback() {
-    var SELECTOR = '.card, .stats-card, .spotlight';
-    document.addEventListener('mouseover', function (e) {
-      var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+    var SELECTOR = '.nav-link, .icon-btn, .chip, .btn, .accordion-btn, .dropdown-menu a, .mobile-menu a';
+    var current = null;
+    function applyTo(el) {
+      if (current && current !== el) current.classList.remove('m-hover');
       if (el) el.classList.add('m-hover');
-    });
-    document.addEventListener('mouseout', function (e) {
-      var el = e.target.closest ? e.target.closest(SELECTOR) : null;
-      if (!el) return;
+      current = el;
+    }
+    function leave(el, e) {
       var to = e.relatedTarget;
       if (to && to.closest && to.closest(SELECTOR) === el) return;
       el.classList.remove('m-hover');
+      if (current === el) current = null;
+    }
+    function handleEnter(e) {
+      var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+      if (el) applyTo(el);
+    }
+    function handleLeave(e) {
+      var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+      if (el) leave(el, e);
+    }
+    document.addEventListener('mouseover', handleEnter);
+    document.addEventListener('mouseout', handleLeave);
+    document.addEventListener('pointerover', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      handleEnter(e);
     });
+    document.addEventListener('pointerout', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      handleLeave(e);
+    });
+  }
+
+  /* ---------- Card press state (click / tap) ----------
+     Cards show their highlight only while clicked / tapped (no hover). */
+  function setupCardPress() {
+    var CARDS = '.card, .stats-card, .spotlight';
+    var timer = null;
+    function find(e) { return e.target && e.target.closest ? e.target.closest(CARDS) : null; }
+    function clearOther() {
+      var el = document.querySelector('.is-pressed');
+      if (el) el.classList.remove('is-pressed');
+    }
+    document.addEventListener('pointerdown', function (e) {
+      if (timer) { clearTimeout(timer); timer = null; }
+      clearOther();
+      var c = find(e);
+      if (c) c.classList.add('is-pressed');
+    }, true);
+    document.addEventListener('pointerup', function (e) {
+      if (e.pointerType === 'mouse') return;
+      var c = find(e);
+      if (!c) return;
+      clearTimeout(timer);
+      c.classList.add('is-pressed');
+      timer = setTimeout(function () { c.classList.remove('is-pressed'); timer = null; }, 300);
+    }, true);
+    document.addEventListener('pointercancel', function (e) {
+      if (timer) { clearTimeout(timer); timer = null; }
+      var c = find(e);
+      if (c) c.classList.remove('is-pressed');
+    }, true);
+    document.addEventListener('pointerleave', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      var c = find(e);
+      if (c) c.classList.remove('is-pressed');
+    }, true);
+    if (!window.PointerEvent) {
+      document.addEventListener('touchstart', function (e) {
+        var c = find(e);
+        if (c) c.classList.add('is-pressed');
+      }, true);
+      document.addEventListener('touchend', function (e) {
+        var c = find(e);
+        if (!c) return;
+        c.classList.add('is-pressed');
+        setTimeout(function () { c.classList.remove('is-pressed'); }, 300);
+      }, true);
+      document.addEventListener('touchcancel', function (e) {
+        var c = find(e);
+        if (c) c.classList.remove('is-pressed');
+      }, true);
+    }
   }
 
   /* ---------- Dropdowns (touch / click) ---------- */
@@ -587,6 +658,7 @@
     setupMobileMenu();
     setupDropdowns();
     setupHoverFallback();
+    setupCardPress();
     setupBackToTop();
     setupReveal();
     setupStagger();
