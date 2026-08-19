@@ -9,16 +9,24 @@
 (function () {
   'use strict';
 
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
   function linkTo(href, label, extra) {
-    return '<a class="nav-link' + (extra || '') + '" href="' + href + '">' + label + '</a>';
+    var page = href.split('/').pop();
+    var active = (page === currentPage) ? ' active' : '';
+    return '<a class="nav-link' + active + (extra || '') + '" href="' + href + '">' + label + '</a>';
   }
 
   function dropdown(label, items) {
+    var isHome = items.some(function (it) { return it.href.split('/').pop() === currentPage; });
     var list = items.map(function (it) {
-      return '<a href="' + it.href + '">' + it.label + '</a>';
+      var page = it.href.split('/').pop();
+      var active = (page === currentPage) ? ' class="active"' : '';
+      return '<a href="' + it.href + '"' + active + '>' + it.label + '</a>';
     }).join('');
+    var triggerClass = 'nav-link nav-drop-trigger' + (isHome ? ' active' : '');
     return '<li class="nav-group">' +
-      '<button type="button" class="nav-link nav-drop-trigger" aria-haspopup="true" aria-expanded="false">' +
+      '<button type="button" class="' + triggerClass + '" aria-haspopup="true" aria-expanded="false">' +
       label +
       ' <i class="fa-solid fa-chevron-down text-[0.65em] opacity-60"></i></button>' +
       '<div class="dropdown-menu" role="menu">' + list + '</div>' +
@@ -75,7 +83,9 @@
       '<a href="register.html" class="btn btn-primary btn-sm hidden lg:inline-flex"><i class="fa-solid fa-user-plus"></i> Sign Up</a>';
 
   function mobileLink(href, label) {
-    return '<a href="' + href + '">' + label + '</a>';
+    var page = href.split('/').pop();
+    var active = (page === currentPage) ? ' class="active"' : '';
+    return '<a href="' + href + '"' + active + '>' + label + '</a>';
   }
 
   var mobileMenuLinks = mobileLink('index.html', 'Home – Services') +
